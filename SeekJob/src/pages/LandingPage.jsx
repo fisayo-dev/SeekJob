@@ -10,8 +10,8 @@ const LandingPage = () => {
       <NavLink to="/">
         <Logo />
       </NavLink>  
-      <div className="grid md:flex w-3/4 m-auto items-center">
-        <div className="p-5 grid gap-3 ">
+      <div className="grid  md:flex w-3/4 m-auto items-center">
+        <div className="p-5 grid gap-3 my-[3rem]">
           <h1 className="text-6xl app-tet-color font-extrabold text-slate-900">
             Look for any job of your choice.
           </h1>

@@ -89,8 +89,8 @@ const SignUp = () => {
       </NavLink>
       <div className="p-5 grid">
         <h1 className="text-5xl font-bold text-center my-2">SignUp</h1>
-        <div className="mt-5 grid gap-5">
-          <form action="" className="grid gap-2 m-auto md:w-2/5 ">
+        <div className="mt-5 grid gap-5 justify-center md:justify-normal">
+          <form action="" className="grid gap-2 md:m-auto w-9/12 md:w-2/5 ">
             <div className="grid gap-1">
               <label htmlFor="" className="required">
                 Username
@@ -98,7 +98,7 @@ const SignUp = () => {
               <input
                 type="text"
                 placeholder="John Doe"
-                className="border-2 rounded-md p-3"
+                className="border-2 border-[#b6b6b6] rounded-md p-3"
                 value={username}
                 onChange={(e) => {
                   setUsername(e.target.value);
@@ -112,7 +112,7 @@ const SignUp = () => {
               <input
                 type="email"
                 placeholder="example@gmail.com"
-                className="border-2 rounded-md p-3"
+                className="border-2 border-[#b6b6b6] rounded-md p-3"
                 value={email}
                 onChange={(e) => {
                   setEmail(e.target.value);
@@ -126,7 +126,7 @@ const SignUp = () => {
               <input
                 type="password"
                 placeholder="Secure password"
-                className="border-2 rounded-md p-3"
+                className="border-2 border-[#b6b6b6] rounded-md p-3"
                 value={password}
                 onChange={(e) => {
                   setPassword(e.target.value);
@@ -134,31 +134,26 @@ const SignUp = () => {
               />
               <div className="my-2 text-[0.89rem] font-bold">
                 <pre
-                  className={`${
-                    symblValid ? "app-success" : "app-text-color"
-                  }`}
+                  className={`${symblValid ? "app-success" : "app-text-color"}`}
                 >
-                  Your password must contain at least one symbol.
+                  Password must contain at least one symbol.
                 </pre>
                 <pre
-                  className={`${
-                    lenValid ? "app-success" : "app-text-color"
-                  }`}
+                  className={`${lenValid ? "app-success" : "app-text-color"}`}
                 >
-                  Your password must be more than 8 characters.
+                  Password must be more than 8 characters.
                 </pre>
                 <pre
-                  className={`${
-                    numValid ? "app-success" : "app-text-color"
-                  }`}
+                  className={`${numValid ? "app-success" : "app-text-color"}`}
                 >
-                  Your password must include a number(s).
+                  Password must include a number(s).
                 </pre>
               </div>
 
               <NavLink to="/login">
-
-              <p className="my-2 text-[0.9rem] text-center hover-bg-app-bg-color">Already have an account, Login</p>
+                <p className="my-2 text-[0.9rem] text-center hover-app-text-color font-bold">
+                  Have an account already, then Login.
+                </p>
               </NavLink>
             </div>
 
@@ -170,7 +165,7 @@ const SignUp = () => {
             </Button>
           </form>
           <div className="grid gap-1">
-            <p className="text-center text-sm">--OR--</p>
+            <p className="text-center text-sm">-- OR --</p>
             <div className="py-2 px-5 w-auto m-auto rounded-md border-2 border-gray-600 flex gap-2 justify-center items-center cursor-pointer hover:bg-gray-600 hover:text-white text-gray-600 text-[1.1rem]">
               <FaGoogle />
               <pre className="tracking-tight">Continue with Google.</pre>
