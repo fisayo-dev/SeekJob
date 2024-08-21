@@ -5,7 +5,7 @@ const Jobs = () => {
   const [currentTab, setCurrentTab] = useState("tech");
   return (
     <UserPage>
-      <div className="p-3 justify-center gap-6 flex items-start">
+      <div className="p-3 sticky justify-start catgeories-tabs md:justify-center w-full overflow-scroll gap-6 flex items-start">
         <p
           className={`${
             currentTab == "tech"
@@ -67,6 +67,7 @@ const Jobs = () => {
           Other
         </p>
       </div>
+     
     </UserPage>
   );
 };

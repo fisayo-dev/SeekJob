@@ -8,16 +8,17 @@ const UserPage = ({ children }) => {
   const [responsive, setResponsive] = useState(false);
 
   useEffect(() => {
-    window.addEventListener("resize", () => setWindowWidth(window.innerWidth));
-  },[]);
-  useEffect(() => {
     windowWidth < 998 ? setResponsive(true) : setResponsive(false);
   }, [windowWidth]);
 
+  useEffect(() => {
+    window.addEventListener("resize", () => setWindowWidth(window.innerWidth));
+  },[]);
+  
   return (
     <div>
       <Header responsive={responsive} />
-      <div className="app-content grid justify-center px-5 pt-2 overflow-scroll ">
+      <div className="app-content items-start grid gap-6 px-5 pt-2 overflow-scroll ">
         {children}
       </div>
       <AppFooter responsive={responsive} />

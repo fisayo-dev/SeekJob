@@ -12,7 +12,7 @@ const Header = ({responsive}) => {
       <NavLink to="/jobs">
       <Logo />
       </NavLink>
-      <div className="flex justify-center text-[1.6rem] gap-5 items-center">
+      <div className="flex justify-center text-[1.43rem] gap-5 items-center">
         <NavLink to="/jobs" className={`app-page-tabs ${active} ${responsive ? 'hidden' : ''}`}>
           <SiGooglehome />
         </NavLink>
@@ -23,7 +23,7 @@ const Header = ({responsive}) => {
           <FaUser />
         </NavLink>
       </div>
-      <div className="flex justify-center text-[1.6rem] cursor-pointer gap-5 items-center">
+      <div className="flex justify-center text-[1.43rem] cursor-pointer gap-5 items-center">
         <NavLink to="/create">
           <FaPlus className={`hover-app-text-color`} />
         </NavLink>

@@ -99,3 +99,7 @@ input:focus {
   border-radius: 10px;
   background-color: var(--standard-app-color);
 }
+
+.catgeories-tabs::-webkit-scrollbar-thumb {
+    background: none;
+}
