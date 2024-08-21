@@ -47,7 +47,7 @@ const Login = () => {
               </label>
               <input
                 type="password"
-                placeholder="Do you remeber your password?"
+                placeholder="Remeber your password ?"
                 className="border-2 border-[#b6b6b6] rounded-md p-3"
                 value={password}
                 onChange={(e) => {

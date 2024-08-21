@@ -4,6 +4,11 @@ import Login from "./pages/AppPages/Login";
 import SignUp from "./pages/AppPages/SignUp";
 import NotAvailable from "./pages/NotAvailable";
 import PrivateRoutes from './utils/PrivateRoutes'
+import Jobs from "./pages/UserPages/Jobs";
+import Menu from './pages/UserPages/Menu'
+import Create from './pages/UserPages/Create'
+import Profile from './pages/UserPages/Profile'
+import Search from './pages/UserPages/Search'
 
 export default function App() {
   return (
@@ -11,7 +16,11 @@ export default function App() {
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="" element={<PrivateRoutes />}>
-          <Route path="/app" element={<LandingPage />} />
+          <Route path="/jobs" element={<Jobs />} />
+          <Route path="/search" element={<Search />} />
+          <Route path="/create" element={<Create />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/menu" element={<Menu />} />
         </Route>
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />

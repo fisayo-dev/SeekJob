@@ -2,16 +2,16 @@ import Logo from "../components/Logo";
 import SearchLanding from "../assets/SearchLanding.svg";
 import Button from "../components/Button";
 import Footer from "../components/Footer";
-import {NavLink} from 'react-router-dom'
+import { NavLink } from "react-router-dom";
 
 const LandingPage = () => {
   return (
     <div className="h-full graph-bg grid">
       <NavLink to="/">
         <Logo />
-      </NavLink>  
+      </NavLink>
       <div className="grid  md:flex w-3/4 m-auto items-center">
-        <div className="p-5 grid gap-3 my-[3rem]">
+        <div className="p-5 grid gap-3 my-[1rem]">
           <h1 className="text-6xl app-tet-color font-extrabold text-slate-900">
             Look for any job of your choice.
           </h1>

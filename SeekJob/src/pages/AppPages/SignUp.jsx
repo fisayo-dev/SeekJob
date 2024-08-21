@@ -90,7 +90,7 @@ const SignUp = () => {
       <div className="p-5 grid">
         <h1 className="text-5xl font-bold text-center my-2">SignUp</h1>
         <div className="mt-5 grid gap-5 justify-center md:justify-normal">
-          <form action="" className="grid gap-2 md:m-auto w-9/12 md:w-2/5 ">
+          <form action="" className="grid gap-2 justify-center md:justify-normal m-auto w-7/12 md:w-2/5 ">
             <div className="grid gap-1">
               <label htmlFor="" className="required">
                 Username

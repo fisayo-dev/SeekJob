@@ -3,7 +3,7 @@ import { FaArrowLeft, FaGlobe } from "react-icons/fa6";
 import Button from "../components/Button";
 
 const PrivateRoutes = () => {
-  const user = false;
+  const user = true;
   return user ? (
     <Outlet />
   ) : (
