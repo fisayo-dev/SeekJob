@@ -90,7 +90,7 @@ const SignUp = () => {
       <div className="py-5 grid">
         <h1 className="text-5xl font-bold  my-2 text-center">SignUp</h1>
         <div className="mt-5 grid gap-5 w-full justify-center">
-          <form action="" className="grid gap-2 items-stretch">
+          <form action="" className="grid gap-2 items-center">
             <div className="grid gap-1">
               <label htmlFor="" className="required">
                 Username
