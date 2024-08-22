@@ -89,8 +89,8 @@ const SignUp = () => {
       </NavLink>
       <div className="py-5 grid">
         <h1 className="text-5xl font-bold  my-2 text-center">SignUp</h1>
-        <div className="mt-5 grid gap-5 m-auto justify-center">
-          <form action="" className="grid gap-2 items-center">
+        <div className="mt-5 grid gap-5 m-auto">
+          <form action="" className="grid gap-2">
             <div className="grid gap-1">
               <label htmlFor="" className="required">
                 Username
@@ -133,7 +133,7 @@ const SignUp = () => {
                 }}
               />
               </div>
-              <div className="my-2 text-[0.89rem] font-bold">
+              <div className="my-2 text-[0.6rem] md:text-[0.89rem] font-bold">
                 <pre
                   className={`${symblValid ? "app-success" : "app-text-color"}`}
                 >
