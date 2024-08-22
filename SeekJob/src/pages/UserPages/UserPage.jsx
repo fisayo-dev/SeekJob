@@ -8,7 +8,7 @@ const UserPage = ({ children }) => {
   const [responsive, setResponsive] = useState(false);
 
   useEffect(() => {
-    windowWidth < 998 ? setResponsive(true) : setResponsive(false);
+    windowWidth < 900 ? setResponsive(true) : setResponsive(false);
   }, [windowWidth]);
 
   useEffect(() => {

@@ -19,14 +19,14 @@ const Login = () => {
   });
 
   return (
-    <div className="h-full graph-bg grid items-start">
+    <div className="h-[100vh] graph-bg grid items-stretch">
       <NavLink to="/">
         <Logo />
       </NavLink>
-      <div className="p-5 grid">
-        <h1 className="text-5xl font-bold text-center my-2">LogIn</h1>
-        <div className="mt-5 grid gap-5 md:justify-normal">
-          <form action="" className="grid gap-2 m-auto w-10/12 md:w-2/5 ">
+      <div className="py-5 grid">
+        <h1 className="text-5xl font-bold my-2 text-center">LogIn</h1>
+        <div className="mt-5 grid gap-5 w-full justify-center">
+          <form action="" className="grid gap-2 items-stretch">
             <div className="grid gap-1">
               <label htmlFor="" className="required">
                 Email

@@ -6,12 +6,12 @@ import { NavLink } from "react-router-dom";
 
 const LandingPage = () => {
   return (
-    <div className="h-full graph-bg grid">
+    <div className="h-[100vh] graph-bg grid items-stretch">
       <NavLink to="/">
         <Logo />
       </NavLink>
-      <div className="grid  md:flex w-3/4 m-auto items-center">
-        <div className="p-5 grid gap-3 my-[1rem]">
+      <div className="grid  gap-2 md:flex w-3/4 m-auto items-center">
+        <div className="grid gap-3 my-[1rem]">
           <h1 className="text-6xl app-tet-color font-extrabold text-slate-900">
             Look for any job of your choice.
           </h1>
@@ -22,7 +22,7 @@ const LandingPage = () => {
             <Button className="">Try Now</Button>
           </NavLink>
         </div>
-        <div className="p-2 grid items-center justify-center">
+        <div className="grid items-center justify-center">
           <img src={SearchLanding} draggable={false} alt="" />
         </div>
       </div>
