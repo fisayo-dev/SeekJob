@@ -1,14 +1,21 @@
-import { FaGoogle } from "react-icons/fa6";
+import {
+  FaGoogle,
+  FaMagnifyingGlass,
+  FaRegCopyright,
+  FaEnvelope,
+  FaKey,
+  FaEyeSlash,
+  FaEye,
+} from "react-icons/fa6";
 import Button from "../../components/Button";
-import Logo from "../../components/Logo";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import Footer from "../../components/Footer";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [disabledBtn, setDisabledBtn] = useState(true);
+  const [openPassword, setOpenPassword] = useState(false);
 
   useEffect(() => {
     if (email.trim() != "" && password.trim() != "") {
@@ -16,68 +23,105 @@ const Login = () => {
     } else {
       setDisabledBtn(true);
     }
-  });
+  }, [email, password]);
+
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [responsive, setResponsive] = useState(false);
+
+  useEffect(() => {
+    windowWidth < 1001 ? setResponsive(true) : setResponsive(false);
+  }, [windowWidth]);
+
+  useEffect(() => {
+    window.addEventListener("resize", () => setWindowWidth(window.innerWidth));
+  }, []);
 
   return (
-    <div className="h-[100vh] graph-bg grid items-stretch">
-      <NavLink to="/">
-        <Logo />
-      </NavLink>
-      <div className="py-5 grid">
-        <h1 className="text-5xl font-bold my-2 text-center">LogIn</h1>
-        <div className="mt-5 grid gap-5 w-full justify-center">
-          <form action="" className="grid gap-2 items-stretch">
-            <div className="grid gap-1">
-              <label htmlFor="" className="required">
-                Email
-              </label>
+    <div className="graph-bg grid grid-cols-2 w-[100vw] overflow-hidden">
+      <div
+        className={`${
+          responsive ? "w-[100vw]" : "w-full"
+        } h-[100vh] bg-[#fff] overflow-scroll grid place-items-center`}
+      >
+        <div className="grid py-2 gap-6 w-full justify-items-center">
+          <NavLink
+            to="/"
+            className={`${
+              responsive ? "flex" : "hidden"
+            } app-text-color items-center gap-2 text-center`}
+          >
+            <FaMagnifyingGlass className="flip" />
+            <p>SeekJob</p>
+          </NavLink>
+          <h2 className="text-5xl font-bold text-center">LogIn </h2>
+          <NavLink to="/signup" className={`${responsive ? "block" : "hidden"} hover-app-text-color`}>
+            New to Seek Job, SignUp now.
+          </NavLink>
+          <form action="" className="grid gap-3 ">
+            <div className="bg-gray-300 w-full rounded-md flex gap-2 items-center px-4 py-3">
+              <FaEnvelope />
               <input
                 type="email"
-                placeholder="Place your email here"
-                className="border-2 border-[#b6b6b6] rounded-md p-3"
+                placeholder="Email address"
+                className=" text-[1.1rem]"
                 value={email}
-                onChange={(e) => {
-                  setEmail(e.target.value);
-                }}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </div>
-            <div className="grid gap-1">
-              <label htmlFor="" className="required">
-                Password
-              </label>
+            <div className="bg-gray-300 w-full rounded-md flex gap-2 items-center px-4 py-3">
+              <FaKey />
               <input
-                type="password"
-                placeholder="Remeber your password ?"
-                className="border-2 border-[#b6b6b6] rounded-md p-3"
+                type={`${openPassword ? "text" : "password"}`}
+                placeholder="Password"
+                className="w-full text-[1.1rem]"
                 value={password}
-                onChange={(e) => {
-                  setPassword(e.target.value);
-                }}
+                onChange={(e) => setPassword(e.target.value)}
               />
-              <NavLink to="/signup">
-                <p className="my-2 text-[0.9rem] text-center hover-app-text-color font-bold">
-                  New to SeekJob, create an account.
-                </p>
-              </NavLink>
+              <div
+                className="cursor-pointer"
+                onClick={() => setOpenPassword((prev) => !prev)}
+              >
+                {openPassword ? <FaEye /> : <FaEyeSlash />}
+              </div>
             </div>
-
-            <Button
-              disabled={disabledBtn}
-              customStyles="w-full disabled:bg-gray-400 disabled:cursor-not-allowed"
-            >
-              Submit
-            </Button>
+            <Button disabled={disabledBtn}>LogIn</Button>
           </form>
           <div className="grid gap-1">
-            <p className="text-center text-sm">-- OR --</p>
-            <div className="py-2 px-5 w-auto m-auto rounded-md border-2 border-gray-600 flex gap-2 justify-center items-center cursor-pointer hover:bg-gray-600 hover:text-white text-gray-600 text-[1.1rem]">
+            <p className="text-center">-- OR --</p>
+            <div className="px-4 py-2 border-2 border-gray-600 hover:bg-gray-600 hover:text-white cursor-pointer rounded-md flex items-center justify-center gap-2">
               <FaGoogle />
-              <pre className="tracking-tight">Continue with Google.</pre>
+              <p>Continue with Google</p>
             </div>
           </div>
         </div>
       </div>
-      <Footer />
+      <div
+        className={`app-bg-color w-full h-[100vh] shadow-lg ${
+          responsive ? "hidden" : "grid"
+        } place-items-center`}
+      >
+        <div className="w-full text-white grid py-3 px-20 gap-5 justify-items-">
+          <NavLink to="/" className="flex items-center gap-2">
+            <FaMagnifyingGlass className="flip" />
+            <p>SeekJob</p>
+          </NavLink>
+          <h2 className="text-6xl font-bold ">
+            We are glad to meet <b>you</b> again!!
+          </h2>
+          <p className="text-[1.1rem] bg-blck">
+            Are you new to SeekJob, create an account now.
+          </p>
+          <Link to="/signup">
+            <button className="px-4 py-2 rounded-md border-2 border-white hover:bg-white hover-app-text-color text-[1.2rem] font-bold">
+              SignUp
+            </button>
+          </Link>
+          <div className="flex gap-2 font-bold p-3 bg-transparent items-center text-[1.2rem]">
+            <FaRegCopyright />
+            <p>{new Date().getFullYear()}</p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

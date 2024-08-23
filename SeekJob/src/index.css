@@ -5,7 +5,7 @@
   --dark-standard-app-color: #c91606;
   --light-standard-app-color: #fff8f7;
   --standard-app-success-color: @apply bg-green-700;
-  font-family: 'Ubuntu','Montserrat', 'Corbel';
+  font-family: 'Ubuntu','Montserrat', 'Poppins';
   line-height: 1.5;
   font-weight: 400;
   color: hsl(0, 0%, 17%)
@@ -26,6 +26,10 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
 
 .app-bg-color {
   background-color: var(--standard-app-color);
+}
+
+.app-border {
+  border: 2px solid var(--standard-app-color)
 }
 
 .hover-app-bg-color:hover {
@@ -50,9 +54,6 @@ input {
   @apply text-slate-700
 }
 
-input:focus {
-  border: 2px solid #818181;
-}
 
 .required::after {
   content: ' *';
@@ -61,7 +62,7 @@ input:focus {
 
 .app-success {
   transition: 0.1s ease-in-out;
-  color: #000;
+  @apply text-slate-900;
 }
 
 
@@ -86,6 +87,9 @@ input:focus {
   height: 84vh;
 }
 
+p {
+  line-height: 23px;
+}
 .app-footer {
   height: 8vh;
 }
