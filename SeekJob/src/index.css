@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap&display=swap');
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   --standard-app-color: #e21604;
   --dark-standard-app-color: #c91606;
@@ -9,14 +13,6 @@
   line-height: 1.5;
   font-weight: 400;
   color: hsl(0, 0%, 17%)
-}
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-:root {
-  
 }
 
 .graph-bg {
@@ -70,7 +66,7 @@ input {
   cursor: pointer;
 }
 .app-page-tabs.active {
-  border-bottom: 2px solid var(--standard-app-color);
+  /* border-bottom: 2px solid var(--standard-app-color); */
   color: var(--standard-app-color)
 }
 
@@ -78,7 +74,7 @@ input {
   color: var(--standard-app-color);
 }
 
- .app-header {
+.app-header {
    box-shadow: 0 0 10px  0 #eee;
 }
 
@@ -113,6 +109,6 @@ p {
     background: none;
 }
 
-.grid-home {
+.app-grid {
   grid-template-rows: 10% 80% 10%;
 }
