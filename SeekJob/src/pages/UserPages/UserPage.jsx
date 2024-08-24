@@ -18,7 +18,7 @@ const UserPage = ({ children }) => {
   return (
     <div className="grid h-[100vh] app-grid">
       <Header responsive={responsive} />
-      <div className="items-start grid gap-6 px-5 pt-2 overflow-scroll ">
+      <div className="items-start h-full px-5 overflow-scroll ">
         {children}
       </div>
       <AppFooter responsive={responsive} />

@@ -64,10 +64,13 @@ input {
 .app-page-tabs {
   padding: 5px 10px;
   cursor: pointer;
+  width: 100%;
+  justify-content: center;
+
 }
 .app-page-tabs.active {
-  /* border-bottom: 2px solid var(--standard-app-color); */
   color: var(--standard-app-color)
+  
 }
 
 .app-page-tabs:hover {
@@ -79,7 +82,7 @@ input {
 }
 
 .app-footer {
-  box-shadow: 10px 0 0 0 #eee;
+  box-shadow: 0 10px #eee;
 }
 
 /*
@@ -109,6 +112,21 @@ p {
     background: none;
 }
 
+.job-card{
+  height: 25vh;
+  @apply rounded-lg p-[10vh] w-full;
+  background: #eee;
+}
+
 .app-grid {
-  grid-template-rows: 10% 80% 10%;
+  grid-template-rows: 10% 90%;
+}
+
+@media screen and (max-width: 899px) {
+  .app-grid {
+    grid-template-rows: 10% 80% 10%;
+  }
+
+  .app-page-tabs {
+  }
 }

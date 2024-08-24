@@ -9,19 +9,19 @@ const AppFooter = ({responsive}) => {
   };
 
   return (
-    <div className={`${responsive ? "grid" :'hidden'} app-footer items-center bg-white shadow-inner px-10`}>
-      <div className="flex justify-between text-[1.6rem] gap-5 items-center">
+    <div className={`${responsive ? "grid" :'hidden'} app-footer px-[5vw] border-t-2 w-full`}>
+      <div className="grid grid-cols-4 text-[1.7rem] justify-center items-center">
         <NavLink to="/jobs" className={`app-page-tabs ${active}`}>
-          <SiGooglehome />
+          <SiGooglehome className="m-auto"/>
         </NavLink>
         <NavLink to="/search" className={`app-page-tabs ${active}`}>
-          <FaMagnifyingGlass />
+          <FaMagnifyingGlass className="m-auto"/>
         </NavLink>
         <NavLink to="/profile" className={`app-page-tabs ${active} `}>
-          <FaUser />
+          <FaUser className="m-auto"/>
         </NavLink>
         <NavLink to="/menu" className={`app-page-tabs ${active}`}>
-          <FaBars />
+          <FaBars className="m-auto"/>
         </NavLink>
       </div>
     </div>
