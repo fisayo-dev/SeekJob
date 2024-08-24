@@ -1,8 +1,8 @@
 import { FaMagnifyingGlass } from "react-icons/fa6";
 
-const Logo = () => {
+const Logo = ({className}) => {
   return (
-    <div className="flex gap-2 font-bold p-3 justify-center items-center text-[1.2rem] app-text-color">
+    <div className={`${className} flex gap-2 font-bold  justify-center items-center text-[1.2rem] app-text-color`}>
       <FaMagnifyingGlass className="flip" />
       <p>SeekJob</p>
     </div>

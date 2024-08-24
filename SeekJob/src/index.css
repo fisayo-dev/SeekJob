@@ -110,16 +110,29 @@ p {
 
 .catgeories-tabs::-webkit-scrollbar-thumb {
     background: none;
+    height: 0;
+    width: 0;
 }
 
 .job-card{
-  height: 25vh;
-  @apply rounded-lg p-[10vh] w-full;
-  background: #eee;
+  display: grid;
+  grid-template-rows: 2fr 5fr 1fr;
+  height: 60vh;
+  @apply rounded-lg p-[3vh] w-full place-items-start;
+  background: #ffe0e0;
 }
 
 .app-grid {
   grid-template-rows: 10% 90%;
+}
+
+.line-height-ok {
+  line-height: 1.1;
+}
+
+.job-card-img {
+  width: 3vw;
+  height: 3vw;
 }
 
 @media screen and (max-width: 899px) {
@@ -127,6 +140,8 @@ p {
     grid-template-rows: 10% 80% 10%;
   }
 
-  .app-page-tabs {
+  .job-card-img {
+    width: 10vw;
+    height: 10vw;
   }
 }

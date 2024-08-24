@@ -8,7 +8,7 @@ const LandingPage = () => {
   return (
     <div className="graph-bg grid">
       <NavLink to="/" className=" grid items-center">
-        <Logo />
+        <Logo className="pt-5"/>
       </NavLink>
       <div className="grid px-[10vw] h-full justify-items-center bg-red-00 gap-10 items-center py-[10vh] grid-cols-1">
         <div className="b-red-400 grid gap-2 justify-items-center md:w-2/4 text-center bg-blac">

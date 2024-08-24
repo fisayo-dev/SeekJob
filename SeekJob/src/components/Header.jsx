@@ -10,7 +10,7 @@ const Header = ({ responsive }) => {
   return (
     <div className="shadow-sm app-header border-b-2 flex items-center py-2 px-[5vw] text-[1.7rem] justify-between">
       <NavLink to="/jobs">
-        <Logo />
+        <Logo/>
       </NavLink>
       <div className="flex justify-center gap-5 items-center">
         <NavLink
@@ -33,13 +33,13 @@ const Header = ({ responsive }) => {
         </NavLink>
       </div>
       <div className="flex justify-center cursor-pointer gap-5 items-center">
-        <NavLink to="/create">
-          <FaPlus className={`hover-app-text-color`} />
-        </NavLink>
         <NavLink to="/menu">
           <FaBars
             className={`${responsive ? "hidden" : "flex"} hover-app-text-color`}
           />
+        </NavLink>
+        <NavLink to="/create">
+          <FaPlus className={`hover-app-text-color`} />
         </NavLink>
       </div>
     </div>
