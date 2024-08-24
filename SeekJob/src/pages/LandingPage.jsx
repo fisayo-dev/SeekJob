@@ -16,7 +16,7 @@ const LandingPage = () => {
             Look for any job of your choice.
           </h2>
           <p className="text-[1.1rem] tracking-tighter">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit sapiente perferendis at dolor natus, 
+          Explore a World of Opportunities and Discover the Perfect Job to Match Your Skills and Ambitions.
           </p>
           <NavLink to="/signup">
             <Button>Seek Now</Button>
