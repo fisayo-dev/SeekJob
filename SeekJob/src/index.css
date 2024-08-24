@@ -78,19 +78,25 @@ input {
   color: var(--standard-app-color);
 }
 
-.app-header {
-  height: 8vh;
+ .app-header {
+   box-shadow: 0 0 10px  0 #eee;
 }
 
+.app-footer {
+  box-shadow: 10px 0 0 0 #eee;
+}
+
+/*
 .app-content {
   height: 84vh;
 }
 
-p {
-  line-height: 23px;
-}
 .app-footer {
   height: 8vh;
+} */
+
+p {
+  line-height: 23px;
 }
 
 
