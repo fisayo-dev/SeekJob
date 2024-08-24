@@ -10,6 +10,7 @@ import {
 import Button from "../../components/Button";
 import { NavLink, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import FormSideMessage from "../../components/FormSideMessage";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -100,31 +101,7 @@ const Login = () => {
           </div>
         </div>
       </div>
-      <div
-        className={`w-full h-[100vh] border-l-2 shadow-lg ${
-          responsive ? "hidden" : "grid"
-        } place-items-center`}
-      >
-        <div className="w-full grid py-3 px-20 gap-5 justify-items-">
-          <NavLink to="/" className="flex items-center gap-2 app-text-color">
-            <FaMagnifyingGlass className="flip" />
-            <p>SeekJob</p>
-          </NavLink>
-          <h2 className="text-6xl font-bold ">
-            We are glad to meet <b>you</b> again!!
-          </h2>
-          <p className="text-[1.1rem] bg-blck">
-            Are you new to SeekJob, create an account now.
-          </p>
-          <Link to="/signup">
-            <Button>SignUp</Button>
-          </Link>
-          <div className="flex gap-2 font-bold bg-transparent items-center text-[1.2rem]">
-            <FaRegCopyright />
-            <p>{new Date().getFullYear()}</p>
-          </div>
-        </div>
-      </div>
+      <FormSideMessage responsive={responsive} title="We are glad to meet you again!!" subtitle="Are you new to Seekjob, create your account." btnText="Create account" to="/signup"  border="border-l-2"/>
     </div>
   );
 };

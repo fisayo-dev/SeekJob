@@ -5,12 +5,12 @@ import {
   FaGoogle,
   FaKey,
   FaUser,
-  FaRegCopyright,
+  FaMagnifyingGlass,
 } from "react-icons/fa6";
 import Button from "../../components/Button";
-import { Link, NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { FaMagnifyingGlass } from "react-icons/fa6";
+import { NavLink } from "react-router-dom";
+import FormSideMessage from "../../components/FormSideMessage";
 
 const SignUp = () => {
   // Input States
@@ -104,31 +104,7 @@ const SignUp = () => {
 
   return (
     <div className="graph-bg grid grid-cols-2 w-[100vw] overflow-hidden">
-      <div
-        className={`border-r-2 w-full h-[100vh] shadow-lg ${
-          responsive ? "hidden" : "grid"
-        } place-items-center`}
-      >
-        <div className="w-full grid py-3 px-[8vw] gap-5 justify-items-">
-          <NavLink to="/" className="flex items-center app-text-color gap-2">
-            <FaMagnifyingGlass className="flip" />
-            <p>SeekJob</p>
-          </NavLink>
-          <h2 className="text-6xl font-bold ">
-            Start your journey of <b>Job Seeking</b> Now.
-          </h2>
-          <p className="text-[1.1rem] bg-blck">
-            Do you already have an account? Then login in to your account now.
-          </p>
-          <Link to="/login">
-            <Button>LogIn</Button>
-          </Link>
-          <div className="flex gap-2 font-bold bg-transparent items-center text-[1.2rem]">
-            <FaRegCopyright />
-            <p>{new Date().getFullYear()}</p>
-          </div>
-        </div>
-      </div>
+      <FormSideMessage responsive={responsive} title="Start your journey of Job Seek Now." subtitle="Already have an account, then login and continue your job seeking process." btnText="Login to account" to="/login" border="border-r-2"/>
       <div
         className={`${
           responsive ? "w-[100vw]" : "w-full"
