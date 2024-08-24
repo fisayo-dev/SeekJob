@@ -41,7 +41,7 @@ const Login = () => {
       <div
         className={`${
           responsive ? "w-[100vw]" : "w-full"
-        } h-[100vh] bg-[#fff] overflow-scroll grid place-items-center`}
+        } h-[100vh]  overflow-scroll grid place-items-center`}
       >
         <div className="grid py-2 gap-6 w-full justify-items-center">
           <NavLink
@@ -54,11 +54,16 @@ const Login = () => {
             <p>SeekJob</p>
           </NavLink>
           <h2 className="text-5xl font-bold text-center">LogIn </h2>
-          <NavLink to="/signup" className={`${responsive ? "block" : "hidden"} hover-app-text-color`}>
+          <NavLink
+            to="/signup"
+            className={`${
+              responsive ? "block" : "hidden"
+            } hover-app-text-color`}
+          >
             New to Seek Job, SignUp now.
           </NavLink>
           <form action="" className="grid gap-3 ">
-            <div className="bg-gray-300 w-full rounded-md flex gap-2 items-center px-4 py-3">
+            <div className="bg-gray-200 w-full rounded-lg flex gap-2 items-center px-4 py-3">
               <FaEnvelope />
               <input
                 type="email"
@@ -68,7 +73,7 @@ const Login = () => {
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
-            <div className="bg-gray-300 w-full rounded-md flex gap-2 items-center px-4 py-3">
+            <div className="bg-gray-200 w-full rounded-lg flex gap-2 items-center px-4 py-3">
               <FaKey />
               <input
                 type={`${openPassword ? "text" : "password"}`}
@@ -96,12 +101,12 @@ const Login = () => {
         </div>
       </div>
       <div
-        className={`app-bg-color w-full h-[100vh] shadow-lg ${
+        className={`w-full h-[100vh] border-l-2 shadow-lg ${
           responsive ? "hidden" : "grid"
         } place-items-center`}
       >
-        <div className="w-full text-white grid py-3 px-20 gap-5 justify-items-">
-          <NavLink to="/" className="flex items-center gap-2">
+        <div className="w-full grid py-3 px-20 gap-5 justify-items-">
+          <NavLink to="/" className="flex items-center gap-2 app-text-color">
             <FaMagnifyingGlass className="flip" />
             <p>SeekJob</p>
           </NavLink>
@@ -112,11 +117,9 @@ const Login = () => {
             Are you new to SeekJob, create an account now.
           </p>
           <Link to="/signup">
-            <button className="px-4 py-2 rounded-md border-2 border-white hover:bg-white hover-app-text-color text-[1.2rem] font-bold">
-              SignUp
-            </button>
+            <Button>SignUp</Button>
           </Link>
-          <div className="flex gap-2 font-bold p-3 bg-transparent items-center text-[1.2rem]">
+          <div className="flex gap-2 font-bold bg-transparent items-center text-[1.2rem]">
             <FaRegCopyright />
             <p>{new Date().getFullYear()}</p>
           </div>

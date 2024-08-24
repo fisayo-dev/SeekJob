@@ -110,7 +110,7 @@ const SignUp = () => {
         } place-items-center`}
       >
         <div className="w-full grid py-3 px-[8vw] gap-5 justify-items-">
-          <NavLink to="/" className="flex items-center gap-2">
+          <NavLink to="/" className="flex items-center app-text-color gap-2">
             <FaMagnifyingGlass className="flip" />
             <p>SeekJob</p>
           </NavLink>
@@ -132,7 +132,7 @@ const SignUp = () => {
       <div
         className={`${
           responsive ? "w-[100vw]" : "w-full"
-        } h-[100vh] bg-[#fff] overflow-scroll grid place-items-center`}
+        } h-[100vh]  overflow-scroll grid place-items-center`}
       >
         <div className="grid w-full py-2 gap-6 justify-items-center">
           <NavLink
@@ -154,7 +154,7 @@ const SignUp = () => {
             Already have an account, Login.
           </NavLink>
           <form action="" className="grid gap-3 ">
-            <div className="bg-gray-300 w-full rounded-md flex gap-2 items-center px-4 py-3">
+            <div className="bg-gray-300 w-full rounded-lg flex gap-2 items-center px-4 py-3">
               <FaUser />
               <input
                 type="text"
@@ -164,7 +164,7 @@ const SignUp = () => {
                 onChange={(e) => setUsername(e.target.value)}
               />
             </div>
-            <div className="bg-gray-300 w-full rounded-md flex gap-2 items-center px-4 py-3">
+            <div className="bg-gray-300 w-full rounded-lg flex gap-2 items-center px-4 py-3">
               <FaEnvelope />
               <input
                 type="email"
@@ -174,7 +174,7 @@ const SignUp = () => {
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
-            <div className="bg-gray-300 w-full rounded-md flex gap-2 items-center px-4 py-3">
+            <div className="bg-gray-300 w-full rounded-lg flex gap-2 items-center px-4 py-3">
               <FaKey />
               <input
                 type={`${openPassword ? "text" : "password"}`}
@@ -207,7 +207,7 @@ const SignUp = () => {
           </form>
           <div className="grid gap-1">
             <p className="text-center">-- OR --</p>
-            <div className="px-4 py-2 border-2 border-gray-600 hover:bg-gray-600 hover:text-white cursor-pointer  rounded-md flex items-center justify-center gap-2">
+            <div className="px-4 py-2 border-2 border-gray-600 hover:bg-gray-600 hover:text-white cursor-pointer  rounded-lg flex items-center justify-center gap-2">
               <FaGoogle />
               <p>Continue with Google</p>
             </div>
