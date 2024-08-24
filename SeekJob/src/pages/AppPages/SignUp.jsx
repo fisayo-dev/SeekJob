@@ -103,13 +103,13 @@ const SignUp = () => {
   });
 
   return (
-    <div className="graph-bg grid grid-cols-2 w-[100vw]  overflow-hidden">
+    <div className="graph-bg grid grid-cols-2 w-[100vw] overflow-hidden">
       <div
-        className={`app-bg-color w-full h-[100vh] shadow-lg ${
+        className={`border-r-2 w-full h-[100vh] shadow-lg ${
           responsive ? "hidden" : "grid"
         } place-items-center`}
       >
-        <div className="w-full text-white grid py-3 px-20 gap-5 justify-items-">
+        <div className="w-full grid py-3 px-[8vw] gap-5 justify-items-">
           <NavLink to="/" className="flex items-center gap-2">
             <FaMagnifyingGlass className="flip" />
             <p>SeekJob</p>
@@ -121,11 +121,9 @@ const SignUp = () => {
             Do you already have an account? Then login in to your account now.
           </p>
           <Link to="/login">
-            <button className="px-4 py-2 rounded-md border-2 border-white hover:bg-white hover-app-text-color text-[1.2rem] font-bold">
-              LogIn
-            </button>
+            <Button>LogIn</Button>
           </Link>
-          <div className="flex gap-2 font-bold p-3 bg-transparent items-center text-[1.2rem]">
+          <div className="flex gap-2 font-bold bg-transparent items-center text-[1.2rem]">
             <FaRegCopyright />
             <p>{new Date().getFullYear()}</p>
           </div>
@@ -147,7 +145,12 @@ const SignUp = () => {
             <p>SeekJob</p>
           </NavLink>
           <h2 className="text-5xl font-bold text-center">SignUp</h2>
-          <NavLink to="/login" className={`${responsive ? "block" : "hidden"} hover-app-text-color`}>
+          <NavLink
+            to="/login"
+            className={`${
+              responsive ? "block" : "hidden"
+            } hover-app-text-color`}
+          >
             Already have an account, Login.
           </NavLink>
           <form action="" className="grid gap-3 ">
@@ -188,7 +191,9 @@ const SignUp = () => {
               </div>
             </div>
             <div className="grid gao-1 text-[0.7rem] md:text-[0.89rem] font-bold">
-              <pre className={`${symblValid ? "app-success" : "app-text-color"}`}>
+              <pre
+                className={`${symblValid ? "app-success" : "app-text-color"}`}
+              >
                 Password must contain at least one symbol.
               </pre>
               <pre className={`${lenValid ? "app-success" : "app-text-color"}`}>
@@ -198,7 +203,7 @@ const SignUp = () => {
                 Password must include a number(s).
               </pre>
             </div>
-            <Button disabled={disabledBtn}>LogIn</Button>
+            <Button disabled={disabledBtn}>SignUp</Button>
           </form>
           <div className="grid gap-1">
             <p className="text-center">-- OR --</p>

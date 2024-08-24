@@ -107,3 +107,7 @@ p {
 .catgeories-tabs::-webkit-scrollbar-thumb {
     background: none;
 }
+
+.grid-home {
+  grid-template-rows: 10% 80% 10%;
+}
