@@ -8,7 +8,7 @@ const Jobs = () => {
   return (
     <UserPage>
       <div className="grid gap-5 justify-items-center">
-        <div className="pt-5 justify-start catgeories-tabs md:justify-center w-full overflow-scroll gap-6 flex items-center">
+        <div className=" justify-start catgeories-tabs md:justify-center w-full overflow-scroll gap-6 flex items-center">
           <p
             className={`${
               currentTab == "tech"

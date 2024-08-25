@@ -108,6 +108,11 @@ p {
   background-color: var(--standard-app-color);
 }
 
+.catgeories-tabs::-webkit-scrollbar {
+  width:0;
+  height:  0;
+}
+
 .catgeories-tabs::-webkit-scrollbar-thumb {
     background: none;
     height: 0;
@@ -117,7 +122,7 @@ p {
 .job-card{
   display: grid;
   grid-template-rows: 2fr 5fr 1fr;
-  max-height: 60rem;
+  height: 21rem;
   overflow: hidden;
   border: 1px solid #ccc;
   @apply rounded-lg p-[3vh] w-full place-items-start gap-3 text-sm;
