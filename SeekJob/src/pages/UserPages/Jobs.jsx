@@ -85,12 +85,12 @@ const Jobs = () => {
                 <p>Company Location.</p>
               </div>
               <div>
-                <li>
+                <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </li>
-                <li>
+                </p>
+                <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </li>
+                </p>
               </div>
             </div>
             <Button>More Info</Button>
