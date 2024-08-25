@@ -9,7 +9,7 @@
   --dark-standard-app-color: #c91606;
   --light-standard-app-color: #fff8f7;
   --standard-app-success-color: @apply bg-green-700;
-  font-family: 'Ubuntu','Montserrat', 'Poppins';
+  font-family: 'Ubutu','Montserrat', 'Poppins';
   line-height: 1.5;
   font-weight: 400;
   color: hsl(0, 0%, 17%)
@@ -117,8 +117,8 @@ p {
 .job-card{
   display: grid;
   grid-template-rows: 2fr 5fr 1fr;
-  height: 60vh;
-  @apply rounded-lg p-[3vh] w-full place-items-start bg-gray-50;
+  max-height: 80vh;
+  @apply rounded-lg p-[3vh] w-full place-items-start bg-gray-50 gap-3;
   /* background: #fdf8f8; */
   /* box-shadow: 0 5px 6px  #ccc; */
   box-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 0.13), 0px 0px 2.9px rgba(0, 0, 0, 0.11);

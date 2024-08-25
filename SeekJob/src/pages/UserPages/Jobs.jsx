@@ -1,7 +1,7 @@
 import { useState } from "react";
 import UserPage from "./UserPage";
-import Button from '../../components/Button'
-import jobImg from '../../assets/react.svg'
+import Button from "../../components/Button";
+import jobImg from "../../assets/react.svg";
 const Jobs = () => {
   const [currentTab, setCurrentTab] = useState("tech");
   return (
@@ -71,15 +71,27 @@ const Jobs = () => {
       <div className="grid">
         <div className="grid gap-5 grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
           <div className="job-card">
-            <div className="flex gap-2 items-center">
-              <img src={jobImg} alt="" className="job-card-img" />
-              <h2 className="text-[1.5rem] font-bold line-height-ok">React Native Developer</h2>
+            <div className="grid gap-1 ">
+              <div className=" rounded w-full ">
+                <img src={jobImg} alt="" className="job-card-img" />
+              </div>
+              <h2 className="text-[1.5rem] font-bold line-height-ok">
+                React Native Developer
+              </h2>
             </div>
-            <div className="grid gap-1">
-              <p className="text-[1.1rem]">Lorem</p>
-              <p className="text-[1.1rem]">Lorem</p>
-              <p className="text-[1.1rem]">Lorem</p>
-              <p className="text-[1.1rem]">Lorem</p>
+            <div className="grid gap-1 text-sm">
+              <div className="">
+                <p>Company Name.</p>
+                <p>Company Location.</p>
+              </div>
+              <div>
+                <li>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </li>
+                <li>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </li>
+              </div>
             </div>
             <Button>More Info</Button>
           </div>
