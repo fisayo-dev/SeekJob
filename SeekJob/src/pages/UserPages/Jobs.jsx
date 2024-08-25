@@ -2,7 +2,8 @@ import { useState } from "react";
 import UserPage from "./UserPage";
 import Button from "../../components/Button";
 import jobImg from "../../assets/react.svg";
-import { FaBookmark } from "react-icons/fa6";
+import { FaArrowDown, FaBookmark } from "react-icons/fa6";
+import Bookmark from "../../icons/Bookmark";
 const Jobs = () => {
   const [currentTab, setCurrentTab] = useState("tech");
   return (
@@ -70,7 +71,7 @@ const Jobs = () => {
             Other
           </p>
         </div>
-        <div className="border-1 rounded-lg px-4 app-gray flex items-center h-12 w-full lg:w-2/4 md:w-3/4">
+        <div className="border-1 text-slate-500 rounded-lg px-4 app-gray flex items-center h-12 w-full lg:w-2/4 md:w-3/4">
           <svg
             width="1em"
             height="1em"
@@ -90,6 +91,8 @@ const Jobs = () => {
             className="w-full"
             value="Nigeria"
           />
+
+          <FaArrowDown />
         </div>
         <div className="grid">
           <div className="grid gap-5 grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
@@ -118,233 +121,10 @@ const Jobs = () => {
               </div>
               <div className="flex w-full justify-between items-center ">
                 <p>Posted 30 days ago</p>
-                <FaBookmark className="text-gray-700 hover-app-text-color " size={25} />
+                <Bookmark className="text-[1.7rem]"/>
               </div>
             </div>
-            <div className="job-card">
-              <div className="grid gap-1 ">
-                <div className=" rounded w-full ">
-                  <img src={jobImg} alt="" className="job-card-img" />
-                </div>
-                <h2 className="text-[1.5rem] font-bold line-height-ok">
-                  React Native Developer
-                </h2>
-              </div>
-              <div className="grid gap-4 ">
-                <div className="">
-                  <p>Tek Experts.</p>
-                  <p>Lagos</p>
-                </div>
-                <div>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  </p>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  </p>
-                </div>
-              </div>
-              <div className="flex w-full justify-between items-center ">
-                <p>Posted 30 days ago</p>
-                <FaBookmark className="text-gray-700 hover-app-text-color " size={25} />
-              </div>
-            </div>
-            <div className="job-card">
-              <div className="grid gap-1 ">
-                <div className=" rounded w-full ">
-                  <img src={jobImg} alt="" className="job-card-img" />
-                </div>
-                <h2 className="text-[1.5rem] font-bold line-height-ok">
-                  React Native Developer
-                </h2>
-              </div>
-              <div className="grid gap-4 ">
-                <div className="">
-                  <p>Tek Experts.</p>
-                  <p>Lagos</p>
-                </div>
-                <div>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  </p>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  </p>
-                </div>
-              </div>
-              <div className="flex w-full justify-between items-center ">
-                <p>Posted 30 days ago</p>
-                <FaBookmark className="text-gray-700 hover-app-text-color " size={25} />
-              </div>
-            </div>
-            <div className="job-card">
-              <div className="grid gap-1 ">
-                <div className=" rounded w-full ">
-                  <img src={jobImg} alt="" className="job-card-img" />
-                </div>
-                <h2 className="text-[1.5rem] font-bold line-height-ok">
-                  React Native Developer
-                </h2>
-              </div>
-              <div className="grid gap-4 ">
-                <div className="">
-                  <p>Tek Experts.</p>
-                  <p>Lagos</p>
-                </div>
-                <div>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  </p>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  </p>
-                </div>
-              </div>
-              <div className="flex w-full justify-between items-center ">
-                <p>Posted 30 days ago</p>
-                <FaBookmark className="text-gray-700 hover-app-text-color " size={25} />
-              </div>
-            </div>
-            <div className="job-card">
-              <div className="grid gap-1 ">
-                <div className=" rounded w-full ">
-                  <img src={jobImg} alt="" className="job-card-img" />
-                </div>
-                <h2 className="text-[1.5rem] font-bold line-height-ok">
-                  React Native Developer
-                </h2>
-              </div>
-              <div className="grid gap-4 ">
-                <div className="">
-                  <p>Tek Experts.</p>
-                  <p>Lagos</p>
-                </div>
-                <div>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  </p>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  </p>
-                </div>
-              </div>
-              <div className="flex w-full justify-between items-center ">
-                <p>Posted 30 days ago</p>
-                <FaBookmark className="text-gray-700 hover-app-text-color " size={25} />
-              </div>
-            </div>
-            <div className="job-card">
-              <div className="grid gap-1 ">
-                <div className=" rounded w-full ">
-                  <img src={jobImg} alt="" className="job-card-img" />
-                </div>
-                <h2 className="text-[1.5rem] font-bold line-height-ok">
-                  React Native Developer
-                </h2>
-              </div>
-              <div className="grid gap-4 ">
-                <div className="">
-                  <p>Tek Experts.</p>
-                  <p>Lagos</p>
-                </div>
-                <div>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  </p>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  </p>
-                </div>
-              </div>
-              <div className="flex w-full justify-between items-center ">
-                <p>Posted 30 days ago</p>
-                <FaBookmark className="text-gray-700 hover-app-text-color " size={25} />
-              </div>
-            </div>
-            <div className="job-card">
-              <div className="grid gap-1 ">
-                <div className=" rounded w-full ">
-                  <img src={jobImg} alt="" className="job-card-img" />
-                </div>
-                <h2 className="text-[1.5rem] font-bold line-height-ok">
-                  React Native Developer
-                </h2>
-              </div>
-              <div className="grid gap-4 ">
-                <div className="">
-                  <p>Tek Experts.</p>
-                  <p>Lagos</p>
-                </div>
-                <div>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  </p>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  </p>
-                </div>
-              </div>
-              <div className="flex w-full justify-between items-center ">
-                <p>Posted 30 days ago</p>
-                <FaBookmark className="text-gray-700 hover-app-text-color " size={25} />
-              </div>
-            </div>
-            <div className="job-card">
-              <div className="grid gap-1 ">
-                <div className=" rounded w-full ">
-                  <img src={jobImg} alt="" className="job-card-img" />
-                </div>
-                <h2 className="text-[1.5rem] font-bold line-height-ok">
-                  React Native Developer
-                </h2>
-              </div>
-              <div className="grid gap-4 ">
-                <div className="">
-                  <p>Tek Experts.</p>
-                  <p>Lagos</p>
-                </div>
-                <div>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  </p>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  </p>
-                </div>
-              </div>
-              <div className="flex w-full justify-between items-center ">
-                <p>Posted 30 days ago</p>
-                <FaBookmark className="text-gray-700 hover-app-text-color " size={25} />
-              </div>
-            </div>
-            <div className="job-card">
-              <div className="grid gap-1 ">
-                <div className=" rounded w-full ">
-                  <img src={jobImg} alt="" className="job-card-img" />
-                </div>
-                <h2 className="text-[1.5rem] font-bold line-height-ok">
-                  React Native Developer
-                </h2>
-              </div>
-              <div className="grid gap-4 ">
-                <div className="">
-                  <p>Tek Experts.</p>
-                  <p>Lagos</p>
-                </div>
-                <div>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  </p>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  </p>
-                </div>
-              </div>
-              <div className="flex w-full justify-between items-center ">
-                <p>Posted 30 days ago</p>
-                <FaBookmark className="text-gray-700 hover-app-text-color " size={25} />
-              </div>
-            </div>
+
             {/* <div className="job-card">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
             harum dolores placeat, dolorem perferendis beatae!

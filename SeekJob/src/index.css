@@ -69,8 +69,8 @@ input {
 
 }
 .app-page-tabs.active {
-  color: var(--standard-app-color)
-  
+  color: var(--standard-app-color);
+  @apply font-extrabold;
 }
 
 .app-page-tabs:hover {
@@ -81,9 +81,6 @@ input {
    box-shadow: 0 0 10px  0 #eee;
 }
 
-.app-footer {
-  box-shadow: 0 10px #eee;
-}
 
 /*
 .app-content {
@@ -151,17 +148,17 @@ p {
 }
 
 .job-card-img {
-  width: 3vw;
-  height: 3vw;
+  width: 35px;
+  height: 35px;
 }
 
 @media screen and (max-width: 899px) {
   .app-grid {
-    grid-template-rows: 8% 80% 10%;
+    grid-template-rows: 10% 80% 10%;
   }
 
   .job-card-img {
-    width: 10vw;
-    height: 10vw;
+    width: 40px;
+  height: 40px;
   }
 }

@@ -2,6 +2,7 @@ import { FaBars, FaPlus, FaMagnifyingGlass, FaUser } from "react-icons/fa6";
 import { SiGooglehome } from "react-icons/si";
 import { NavLink } from "react-router-dom";
 import Logo from "./Logo";
+import Bookmark from "../icons/Bookmark";
 
 const Header = ({ responsive }) => {
   const active = ({ active }) => {
@@ -34,8 +35,8 @@ const Header = ({ responsive }) => {
       </div>
       <div className="flex justify-center cursor-pointer gap-5 items-center">
         <NavLink to="/menu">
-          <FaBars
-            className={`${responsive ? "hidden" : "flex"} hover-app-text-color`}
+          <Bookmark
+            className={`${responsive ? "hidden" : "flex"} `}
           />
         </NavLink>
         <NavLink to="/create">
