@@ -44,12 +44,12 @@ const Login = () => {
           responsive ? "w-[100vw]" : "w-full"
         } h-[100vh]  overflow-scroll grid place-items-center`}
       >
-        <div className="grid py-2 gap-6 w-full justify-items-center">
+        <div className="grid m-auto w-5/6 md:w-2/4 py-2 gap-6">
           <NavLink
             to="/"
             className={`${
               responsive ? "flex" : "hidden"
-            } app-text-color items-center gap-2 text-center`}
+            } app-text-color m-auto items-center gap-2 text-center`}
           >
             <FaMagnifyingGlass className="flip" />
             <p>SeekJob</p>
@@ -59,7 +59,7 @@ const Login = () => {
             to="/signup"
             className={`${
               responsive ? "block" : "hidden"
-            } hover-app-text-color`}
+            } hover-app-text-color text-center`}
           >
             New to Seek Job, SignUp now.
           </NavLink>
