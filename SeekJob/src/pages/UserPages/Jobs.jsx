@@ -112,6 +112,90 @@ const Jobs = () => {
                 <Bookmark className="text-[1.7rem]"/>
               </div>
             </div>
+            <div className="job-card">
+              <div className="grid gap-1 ">
+                <div className=" rounded w-full ">
+                  <img src={jobImg} alt="" className="job-card-img" />
+                </div>
+                <h2 className="text-[1.5rem] font-bold line-height-ok">
+                  React Native Developer
+                </h2>
+              </div>
+              <div className="grid gap-4 ">
+                <div className="">
+                  <p>Tek Experts.</p>
+                  <p>Lagos</p>
+                </div>
+                <div>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  </p>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  </p>
+                </div>
+              </div>
+              <div className="flex w-full justify-between items-center ">
+                <p>Posted 30 days ago</p>
+                <Bookmark className="text-[1.7rem]"/>
+              </div>
+            </div>
+            <div className="job-card">
+              <div className="grid gap-1 ">
+                <div className=" rounded w-full ">
+                  <img src={jobImg} alt="" className="job-card-img" />
+                </div>
+                <h2 className="text-[1.5rem] font-bold line-height-ok">
+                  React Native Developer
+                </h2>
+              </div>
+              <div className="grid gap-4 ">
+                <div className="">
+                  <p>Tek Experts.</p>
+                  <p>Lagos</p>
+                </div>
+                <div>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  </p>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  </p>
+                </div>
+              </div>
+              <div className="flex w-full justify-between items-center ">
+                <p>Posted 30 days ago</p>
+                <Bookmark className="text-[1.7rem]"/>
+              </div>
+            </div>
+            <div className="job-card">
+              <div className="grid gap-1 ">
+                <div className=" rounded w-full ">
+                  <img src={jobImg} alt="" className="job-card-img" />
+                </div>
+                <h2 className="text-[1.5rem] font-bold line-height-ok">
+                  React Native Developer
+                </h2>
+              </div>
+              <div className="grid gap-4 ">
+                <div className="">
+                  <p>Tek Experts.</p>
+                  <p>Lagos</p>
+                </div>
+                <div>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  </p>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  </p>
+                </div>
+              </div>
+              <div className="flex w-full justify-between items-center ">
+                <p>Posted 30 days ago</p>
+                <Bookmark className="text-[1.7rem]"/>
+              </div>
+            </div>
 
             {/* <div className="job-card">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
