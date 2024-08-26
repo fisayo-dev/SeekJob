@@ -64,7 +64,7 @@ const Login = () => {
             New to Seek Job, SignUp now.
           </NavLink>
           <form action="" className="grid gap-3 ">
-            <div className="bg-gray-200 w-full rounded-lg flex gap-2 items-center px-4 py-3">
+            <div className="app-gray text-slate-700 w-full rounded-lg flex gap-2 items-center px-4 py-3">
               <FaEnvelope />
               <input
                 type="email"
@@ -74,7 +74,7 @@ const Login = () => {
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
-            <div className="bg-gray-200 w-full rounded-lg flex gap-2 items-center px-4 py-3">
+            <div className="app-gray text-slate-700 w-full rounded-lg flex gap-2 items-center px-4 py-3">
               <FaKey />
               <input
                 type={`${openPassword ? "text" : "password"}`}
@@ -101,7 +101,14 @@ const Login = () => {
           </div>
         </div>
       </div>
-      <FormSideMessage responsive={responsive} title="We are glad to meet you again!!" subtitle="Are you new to Seekjob, create your account." btnText="Create account" to="/signup"  border="border-l-2"/>
+      <FormSideMessage
+        responsive={responsive}
+        title="We are glad to meet you again!!"
+        subtitle="Are you new to Seekjob, create your account."
+        btnText="Create account"
+        to="/signup"
+        border="border-l-2"
+      />
     </div>
   );
 };

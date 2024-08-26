@@ -130,7 +130,7 @@ const SignUp = () => {
             Already have an account, Login.
           </NavLink>
           <form action="" className="grid gap-3 ">
-            <div className="bg-gray-300 w-full rounded-lg flex gap-2 items-center px-4 py-3">
+            <div className="app-gray text-slate-700 w-full rounded-lg flex gap-2 items-center px-4 py-3">
               <FaUser />
               <input
                 type="text"
@@ -140,7 +140,7 @@ const SignUp = () => {
                 onChange={(e) => setUsername(e.target.value)}
               />
             </div>
-            <div className="bg-gray-300 w-full rounded-lg flex gap-2 items-center px-4 py-3">
+            <div className="app-gray text-slate-700 w-full rounded-lg flex gap-2 items-center px-4 py-3">
               <FaEnvelope />
               <input
                 type="email"
@@ -150,7 +150,7 @@ const SignUp = () => {
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
-            <div className="bg-gray-300 w-full rounded-lg flex gap-2 items-center px-4 py-3">
+            <div className="app-gray text-slate-700 w-full rounded-lg flex gap-2 items-center px-4 py-3">
               <FaKey />
               <input
                 type={`${openPassword ? "text" : "password"}`}
