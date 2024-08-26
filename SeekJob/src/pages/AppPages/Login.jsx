@@ -54,7 +54,7 @@ const Login = () => {
             <FaMagnifyingGlass className="flip" />
             <p>SeekJob</p>
           </NavLink>
-          <h2 className="text-5xl font-bold text-center">LogIn </h2>
+          <h2 className="text-5xl font-bold text-center">Welcome!!</h2>
           <NavLink
             to="/signup"
             className={`${

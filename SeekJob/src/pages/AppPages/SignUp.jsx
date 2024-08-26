@@ -106,7 +106,7 @@ const SignUp = () => {
     <div className="graph-bg grid grid-cols-2 w-[100vw] overflow-hidden">
       <FormSideMessage
         responsive={responsive}
-        title="Start your journey of Job Seek Now."
+        title="Start your journey of Job Seeking Now."
         subtitle="Already have an account, then login and continue your job seeking process."
         btnText="Login to account"
         to="/login"
@@ -127,7 +127,7 @@ const SignUp = () => {
             <FaMagnifyingGlass className="flip" />
             <p>SeekJob</p>
           </NavLink>
-          <h2 className="text-5xl font-bold text-center">SignUp</h2>
+          <h2 className="text-5xl font-bold text-center">Hi There!</h2>
           <NavLink
             to="/login"
             className={`${
