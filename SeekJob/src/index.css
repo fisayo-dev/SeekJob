@@ -2,7 +2,7 @@
 
 @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@tailwind utilities;  
 
 :root {
   --standard-app-color: #e21604;
@@ -122,13 +122,17 @@ p {
   height: 21rem;
   overflow: hidden;
   border: 1px solid #ccc;
-  @apply rounded-lg p-[3vh] w-full place-items-start gap-3 text-sm;
+  @apply rounded-lg p-[3vh] w-full place-items-start gap-3 text-sm ;
+  box-shadow: 0px 2px 8px -1px #ebebeb;
 }
 
 .job-card:hover {
-  border: 1px solid #bbb;
+  border: 1px solid #b1aeae;
   cursor: pointer;
-  box-shadow: 0px 1.6px 3.6px rgba(238, 236, 236, 0.13), 0px 0px 2.9px rgba(202, 202, 202, 0.11);
+  background-color: #e4e4e415;
+  /* box-shadow: 0px 1.6px 3.6px rgba(238, 236, 236, 0.13), 0px 0px 2.9px rgba(202, 202, 202, 0.11); */
+  
+  
 }
 
 .job-card:hover div h2 {
@@ -150,6 +154,9 @@ p {
 .job-card-img {
   width: 35px;
   height: 35px;
+  border-radius: 100%;
+  @apply bg-gray-100;
+  /* background-color: ; */
 }
 
 @media screen and (max-width: 899px) {
