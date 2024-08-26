@@ -122,7 +122,8 @@ p {
   height: 21rem;
   overflow: hidden;
   border: 1px solid #ccc;
-  @apply rounded-lg px-[3.5vh] py-[3vh] w-full place-items-start gap-3 text-sm ;
+  border-radius: 0.9rem;
+  @apply  px-[3.5vh] py-[3vh] w-full place-items-start gap-3 text-sm ;
   box-shadow: 3px 3px 8px -1px #ebebeb;
 }
 

@@ -69,7 +69,7 @@ const Login = () => {
               <input
                 type="email"
                 placeholder="Email address"
-                className=" text-[1.1rem]"
+                className="w-full text-[1.1rem] md:text-[0.9rem]"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
@@ -79,7 +79,7 @@ const Login = () => {
               <input
                 type={`${openPassword ? "text" : "password"}`}
                 placeholder="Password"
-                className="w-full text-[1.1rem]"
+                className="w-full text-[1.1rem] md:text-[0.9rem]"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />

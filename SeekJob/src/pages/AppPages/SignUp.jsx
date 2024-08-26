@@ -104,7 +104,14 @@ const SignUp = () => {
 
   return (
     <div className="graph-bg grid grid-cols-2 w-[100vw] overflow-hidden">
-      <FormSideMessage responsive={responsive} title="Start your journey of Job Seek Now." subtitle="Already have an account, then login and continue your job seeking process." btnText="Login to account" to="/login" border="border-r-2"/>
+      <FormSideMessage
+        responsive={responsive}
+        title="Start your journey of Job Seek Now."
+        subtitle="Already have an account, then login and continue your job seeking process."
+        btnText="Login to account"
+        to="/login"
+        border="border-r-2"
+      />
       <div
         className={`${
           responsive ? "w-[100vw]" : "w-full"
@@ -131,31 +138,31 @@ const SignUp = () => {
           </NavLink>
           <form action="" className="grid gap-3 ">
             <div className="app-gray text-slate-700 w-full rounded-lg flex gap-2 items-center px-4 py-3">
-              <FaUser />
+              <FaUser className="" />
               <input
                 type="text"
                 placeholder="Username"
-                className="w-full text-[1.1rem]"
+                className="w-full text-[1.1rem] md:text-[0.9rem]"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
               />
             </div>
-            <div className="app-gray text-slate-700 w-full rounded-lg flex gap-2 items-center px-4 py-3">
-              <FaEnvelope />
+            <div className="app-gray text-slate-700 w-full rounded-lg flex gap-2 ite2s-center px-4 py-3">
+              <FaEnvelope className="" />
               <input
                 type="email"
                 placeholder="Email address"
-                className=" text-[1.1rem]"
+                className="text-[1.1rem] md:text-[0.9rem]"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
             <div className="app-gray text-slate-700 w-full rounded-lg flex gap-2 items-center px-4 py-3">
-              <FaKey />
+              <FaKey className="" />
               <input
                 type={`${openPassword ? "text" : "password"}`}
                 placeholder="Password"
-                className="w-full text-[1.1rem]"
+                className="w-full text-[1.1rem] md:text-[0.9rem]"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
@@ -163,7 +170,7 @@ const SignUp = () => {
                 className="cursor-pointer"
                 onClick={() => setOpenPassword((prev) => !prev)}
               >
-                {openPassword ? <FaEye /> : <FaEyeSlash />}
+                {openPassword ? <FaEyeSlash /> : <FaEye />}
               </div>
             </div>
             <div className="grid gao-1 text-[0.7rem] md:text-[0.89rem] font-bold">
