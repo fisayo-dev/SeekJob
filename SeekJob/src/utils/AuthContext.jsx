@@ -116,7 +116,7 @@ export const AuthProvider = ({ children }) => {
       let accountDetail = await account.get();
       setUser(accountDetail);
     } catch (err) {
-      console.log(err)
+    //   console.log(err)
     }
     setLoading(false);
   };
