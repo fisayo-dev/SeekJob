@@ -9,11 +9,12 @@ import {
 } from "react-icons/fa6";
 import Button from "../../components/Button";
 import { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 import FormSideMessage from "../../components/FormSideMessage";
-import { Account } from "appwrite";
+import { useAuth } from "../../utils/AuthContext";
 
 const SignUp = () => {
+  const navigate = useNavigate()
   // Input States
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -23,6 +24,8 @@ const SignUp = () => {
   const [lenValid, setLenValid] = useState(false);
   const [symblValid, setSymblValid] = useState(false);
   const [openPassword, setOpenPassword] = useState(false);
+
+  const { registerUser,user } = useAuth();
 
   // Responsive states
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -34,8 +37,12 @@ const SignUp = () => {
 
   useEffect(() => {
     window.addEventListener("resize", () => setWindowWidth(window.innerWidth));
+    if (user) {
+      navigate('/jobs')
+    }
   }, []);
 
+  // Client - Side Validation
   function checkPwdNum() {
     let i = 0;
     while (i < 10) {
@@ -103,6 +110,14 @@ const SignUp = () => {
     }
   });
 
+  const handleSubmit = () => {
+    const userInfo = {
+      username: username,
+      password: password,
+      email: email
+    };
+    registerUser(userInfo)
+  };
   return (
     <div className="graph-bg grid grid-cols-2 w-[100vw] overflow-hidden">
       <FormSideMessage
@@ -137,7 +152,7 @@ const SignUp = () => {
           >
             Already have an account, Login.
           </NavLink>
-          <form action="" className="grid gap-3 ">
+          <form onSubmit={handleSubmit} className="grid gap-3 ">
             <div className="app-gray text-slate-700 w-full rounded-lg flex gap-2 items-center px-4 py-3">
               <FaUser className="" />
               <input
@@ -153,7 +168,7 @@ const SignUp = () => {
               <input
                 type="email"
                 placeholder="Email address"
-                className="text-[1.1rem] md:text-[0.9rem]"
+                className="w-full text-[1.1rem] md:text-[0.9rem]"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />

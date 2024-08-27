@@ -1,6 +1,7 @@
 import { useContext, useState, createContext, useEffect } from "react";
 import { account } from "../appwrite/config";
-import { ID } from "appwrite";
+import { ID, Query } from "appwrite";
+import Swal from "sweetalert2";
 
 const AuthContext = createContext();
 
@@ -32,6 +33,22 @@ export const AuthProvider = ({ children }) => {
 
   const registerUser = async (userInfo) => {
     setLoading(true);
+
+    // //  Check if username is the same.
+    // const users = await account.list([
+    //   Query.equal("username", userInfo.username),
+    // ]);
+
+    // if (users.total > 0) {
+    //   setLoading(false);
+    //   Swal.fire({
+    //     toast: true,
+    //     text: "Username already exists. Please choose a different username",
+    //     timer: 2000,
+    //   });
+    //   return;
+    // }
+
     try {
       await account.create(
         ID.unique(),
@@ -40,7 +57,7 @@ export const AuthProvider = ({ children }) => {
         userInfo.username
       );
 
-      // Logs use in after creating account
+      // Logs user in after creating account
       await account.createEmailPasswordSession(
         userInfo.email,
         userInfo.password
@@ -48,7 +65,25 @@ export const AuthProvider = ({ children }) => {
       let accountDetail = await account.get();
       setUser(accountDetail);
     } catch (err) {
-      console.error(err);
+      // Check email duplicate error code.
+      if (err.code == 409) {
+        Swal.fire({
+          toast: true,
+          text: "Email Address has already been taken",
+          position: "top-end",
+          icon: "error",
+          showConfirmButton: false,
+          timer: 4000,
+        });
+      } else {
+        Swal.fire({
+          toast: true,
+          text: "Unable to reach server. Try again",
+          icon: "error",
+          position: "top-end",
+          timer: 2000,
+        });
+      }
     }
     setLoading(false);
   };
