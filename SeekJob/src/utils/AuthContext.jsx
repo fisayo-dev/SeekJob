@@ -26,7 +26,25 @@ export const AuthProvider = ({ children }) => {
       console.log(accountDetail);
       setUser(accountDetail);
     } catch (err) {
-      console.error(err);
+      if (err.code == 401) {
+        Swal.fire({
+          toast: true,
+          icon: "error",
+          text: "Invlaid username or Email",
+          timer: 4000,
+          position: "center-start",
+          showConfirmButton: false,
+        });
+      } else {
+        Swal.fire({
+          toast: true,
+          icon: "error",
+          text: "Unable to Access Server",
+          timer: 4000,
+          position: "center-start",
+          showConfirmButton: false,
+        });
+      }
     }
     setLoading(false);
   };
@@ -98,7 +116,17 @@ export const AuthProvider = ({ children }) => {
       let accountDetail = await account.get();
       setUser(accountDetail);
     } catch (err) {
-      console.error(err);
+      if (err.code === 401) {
+        // 401 Unauthorized
+        console.error("User is not authenticated. Please log in.");
+        setUser(null); // Ensure no user is set
+        // Optionally, redirect to login page or show a login prompt
+      } else {
+        console.error(
+          "An error occurred while checking user status:",
+          err.message
+        );
+      }
     }
     setLoading(false);
   };

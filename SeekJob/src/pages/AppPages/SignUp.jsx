@@ -36,10 +36,11 @@ const SignUp = () => {
   }, [windowWidth]);
 
   useEffect(() => {
-    window.addEventListener("resize", () => setWindowWidth(window.innerWidth));
     if (user) {
       navigate('/jobs')
     }
+    window.addEventListener("resize", () => setWindowWidth(window.innerWidth))
+    windowWidth < 1001 ? setResponsive(true) : setResponsive(false);
   }, []);
 
   // Client - Side Validation

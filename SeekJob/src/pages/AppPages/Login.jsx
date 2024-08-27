@@ -8,14 +8,14 @@ import {
   FaEye,
 } from "react-icons/fa6";
 import Button from "../../components/Button";
-import { NavLink, Link, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import FormSideMessage from "../../components/FormSideMessage";
 import { useAuth } from "../../utils/AuthContext";
 
 const Login = () => {
-  const navigate = useNavigate()
-  const {loginUser, user}  = useAuth()
+  const navigate = useNavigate();
+  const { loginUser, user } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [disabledBtn, setDisabledBtn] = useState(true);
@@ -36,11 +36,20 @@ const Login = () => {
   }, [windowWidth]);
 
   useEffect(() => {
-    window.addEventListener("resize", () => setWindowWidth(window.innerWidth));
     if (user) {
-      navigate('/jobs')
+      navigate("/jobs");
     }
+    window.addEventListener("resize", () => setWindowWidth(window.innerWidth));
+    windowWidth < 1001 ? setResponsive(true) : setResponsive(false);
   }, []);
+
+  const handleLogin = () => {
+    const userInfo = {
+      email: email,
+      password: password,
+    };
+    loginUser(userInfo);
+  };
 
   return (
     <div className="graph-bg grid grid-cols-2 w-[100vw] overflow-hidden">
@@ -68,7 +77,7 @@ const Login = () => {
           >
             New to Seek Job, SignUp now.
           </NavLink>
-          <form action="" className="grid gap-3 ">
+          <form onSubmit={handleLogin} className="grid gap-3 ">
             <div className="app-gray text-slate-700 w-full rounded-lg flex gap-2 items-center px-4 py-3">
               <FaEnvelope />
               <input
