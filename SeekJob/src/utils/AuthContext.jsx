@@ -116,17 +116,7 @@ export const AuthProvider = ({ children }) => {
       let accountDetail = await account.get();
       setUser(accountDetail);
     } catch (err) {
-      if (err.code === 401) {
-        // 401 Unauthorized
-        console.error("User is not authenticated. Please log in.");
-        setUser(null); // Ensure no user is set
-        // Optionally, redirect to login page or show a login prompt
-      } else {
-        console.error(
-          "An error occurred while checking user status:",
-          err.message
-        );
-      }
+      console.log(err)
     }
     setLoading(false);
   };
