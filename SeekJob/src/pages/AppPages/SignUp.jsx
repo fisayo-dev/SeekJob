@@ -11,6 +11,7 @@ import Button from "../../components/Button";
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import FormSideMessage from "../../components/FormSideMessage";
+import { Account } from "appwrite";
 
 const SignUp = () => {
   // Input States
