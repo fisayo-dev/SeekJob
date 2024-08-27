@@ -3,9 +3,22 @@ import UserPage from "./UserPage";
 import jobImg from "../../assets/react.svg";
 import { FaArrowDown, FaLocationDot } from "react-icons/fa6";
 import Bookmark from "../../icons/Bookmark";
-import SearchIcon from "../../icons/SearchIcon";
 const Jobs = () => {
   const [currentTab, setCurrentTab] = useState("tech");
+  const [location, setLocation] = useState('')
+  
+  // Get current location
+  fetch('https://ipinfo.io?token=e4a8397c5566b0')
+  .then(response => response.json())
+  .then(data => {
+    const country = data.country;
+    const region = data.region;
+    setLocation(`${region}, ${country}`)
+  })
+  .catch(error => {
+    console.error('Error fetching the IP information:', error);
+  });
+
   return (
     <UserPage>
       <div className="grid gap-5 justify-items-center">
@@ -77,7 +90,7 @@ const Jobs = () => {
             type="text"
             placeholder="Type your location"
             className="w-full"
-            value="Nigeria"
+            value={location}
           />
 
           <FaArrowDown />
