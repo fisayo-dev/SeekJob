@@ -3,7 +3,7 @@ import UserPage from "./UserPage";
 import jobImg from "../../assets/react.svg";
 import { FaArrowDown, FaLocationDot } from "react-icons/fa6";
 import Bookmark from "../../icons/Bookmark";
-const Jobs = () => {
+const Jobs = () => {      
   const [currentTab, setCurrentTab] = useState("tech");
   const [location, setLocation] = useState('')
   
