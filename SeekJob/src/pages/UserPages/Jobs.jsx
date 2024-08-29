@@ -126,11 +126,12 @@ const Jobs = () => {
         </div>
         <div className="grid">
           <div className="grid gap-5 grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
-            {jobsList.map((jobItem) => {
+            {/* {jobsList.map((jobItem) => {
               <JobCard key={jobItem.id} job={jobItem} />;
-            })}
+            })} */}
 
-            
+              Applet
+
           </div>
         </div>
       </div>
