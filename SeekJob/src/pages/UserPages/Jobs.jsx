@@ -1,23 +1,52 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import UserPage from "./UserPage";
-import jobImg from "../../assets/react.svg";
 import { FaArrowDown, FaLocationDot } from "react-icons/fa6";
-import Bookmark from "../../icons/Bookmark";
-const Jobs = () => {      
+import JobCard  from "../../components/User/JobCard";
+
+const Jobs = () => {
   const [currentTab, setCurrentTab] = useState("tech");
-  const [location, setLocation] = useState('')
-  
+  const [location, setLocation] = useState("");
+  const [jobsList, setJobList] = useState([]);
+
   // Get current location
-  fetch('https://ipinfo.io?token=e4a8397c5566b0')
-  .then(response => response.json())
-  .then(data => {
-    const country = data.country;
-    const region = data.region;
-    setLocation(`${region}, ${country}`)
-  })
-  .catch(error => {
-    console.error('Error fetching the IP information:', error);
+  useEffect(() => {
+    fetch("https://ipinfo.io?token=e4a8397c5566b0")
+      .then((response) => response.json())
+      .then((data) => {
+        const country = data.country;
+        const region = data.region;
+        setLocation(`${region}`);
+      })
+      .catch((error) => {
+        console.error("Error fetching the IP information:", error);
+      });
   });
+
+  const fetchJobsFromIndeed = async (query, location) => {
+    const url = `https://indeed-jobs-api.p.rapidapi.com/indeed-us/?offset=0&keyword=${query}&location=${location}`;
+    const options = {
+      method: "GET",
+      headers: {
+        "x-rapidapi-key": "4617d18d24msh1d390f6ec109602p1d5274jsn4bbe1157f187",
+        "x-rapidapi-host": "indeed-jobs-api.p.rapidapi.com",
+      },
+    };
+
+    try {
+      const response = await fetch(url, options);
+      const result = await response.json();
+      setJobList(result);
+      console.log(result);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    if (location) {
+      fetchJobsFromIndeed("web developer", location);
+    }
+  }, [location]);
 
   return (
     <UserPage>
@@ -97,147 +126,11 @@ const Jobs = () => {
         </div>
         <div className="grid">
           <div className="grid gap-5 grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
-            <div className="job-card">
-              <div className="grid gap-1 ">
-                <div className=" rounded w-full ">
-                  <img src={jobImg} alt="" className="job-card-img" />
-                </div>
-                <h2 className="text-[1.5rem] font-bold line-height-ok">
-                  React Native Developer
-                </h2>
-              </div>
-              <div className="grid gap-4 ">
-                <div className="">
-                  <p>Tek Experts.</p>
-                  <p>Lagos</p>
-                </div>
-                <div>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  </p>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  </p>
-                </div>
-              </div>
-              <div className="flex w-full justify-between items-center ">
-                <p>Posted 30 days ago</p>
-                <Bookmark className="text-[1.7rem]"/>
-              </div>
-            </div>
-            <div className="job-card">
-              <div className="grid gap-1 ">
-                <div className=" rounded w-full ">
-                  <img src={jobImg} alt="" className="job-card-img" />
-                </div>
-                <h2 className="text-[1.5rem] font-bold line-height-ok">
-                  React Native Developer
-                </h2>
-              </div>
-              <div className="grid gap-4 ">
-                <div className="">
-                  <p>Tek Experts.</p>
-                  <p>Lagos</p>
-                </div>
-                <div>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  </p>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  </p>
-                </div>
-              </div>
-              <div className="flex w-full justify-between items-center ">
-                <p>Posted 30 days ago</p>
-                <Bookmark className="text-[1.7rem]"/>
-              </div>
-            </div>
-            <div className="job-card">
-              <div className="grid gap-1 ">
-                <div className=" rounded w-full ">
-                  <img src={jobImg} alt="" className="job-card-img" />
-                </div>
-                <h2 className="text-[1.5rem] font-bold line-height-ok">
-                  React Native Developer
-                </h2>
-              </div>
-              <div className="grid gap-4 ">
-                <div className="">
-                  <p>Tek Experts.</p>
-                  <p>Lagos</p>
-                </div>
-                <div>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  </p>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  </p>
-                </div>
-              </div>
-              <div className="flex w-full justify-between items-center ">
-                <p>Posted 30 days ago</p>
-                <Bookmark className="text-[1.7rem]"/>
-              </div>
-            </div>
-            <div className="job-card">
-              <div className="grid gap-1 ">
-                <div className=" rounded w-full ">
-                  <img src={jobImg} alt="" className="job-card-img" />
-                </div>
-                <h2 className="text-[1.5rem] font-bold line-height-ok">
-                  React Native Developer
-                </h2>
-              </div>
-              <div className="grid gap-4 ">
-                <div className="">
-                  <p>Tek Experts.</p>
-                  <p>Lagos</p>
-                </div>
-                <div>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  </p>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  </p>
-                </div>
-              </div>
-              <div className="flex w-full justify-between items-center ">
-                <p>Posted 30 days ago</p>
-                <Bookmark className="text-[1.7rem]"/>
-              </div>
-            </div>
+            {jobsList.map((jobItem) => {
+              <JobCard key={jobItem.id} job={jobItem} />;
+            })}
 
-            {/* <div className="job-card">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
-            harum dolores placeat, dolorem perferendis beatae!
-          </div>
-          <div className="job-card">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
-            harum dolores placeat, dolorem perferendis beatae!
-          </div>
-          <div className="job-card">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
-            harum dolores placeat, dolorem perferendis beatae!
-          </div>
-          <div className="job-card">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
-            harum dolores placeat, dolorem perferendis beatae!
-          </div>
-          <div className="job-card">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
-            harum dolores placeat, dolorem perferendis beatae!
-          </div>
-          <div className="job-card">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
-            harum dolores placeat, dolorem perferendis beatae!
-          </div>
-          <div className="job-card">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
-            harum dolores placeat, dolorem perferendis beatae!
-          </div> */}
+            
           </div>
         </div>
       </div>
