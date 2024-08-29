@@ -1,6 +1,6 @@
 import Bookmark from "../../icons/Bookmark";
 
-const JobCard = () => {
+const JobCard = ({job}) => {
   return (
     <div className="job-card">
       <div className="grid gap-1 ">

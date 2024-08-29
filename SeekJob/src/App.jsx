@@ -5,7 +5,7 @@ import SignUp from "./pages/AppPages/SignUp";
 import NotAvailable from "./pages/NotAvailable";
 import PrivateRoutes from "./utils/PrivateRoutes";
 import Jobs from "./pages/UserPages/Jobs";
-import Menu from "./pages/UserPages/Menu";
+import Bookmarks from "./pages/UserPages/Bookmarks";
 import Profile from "./pages/UserPages/Profile";
 import Search from "./pages/UserPages/Search";
 import { AuthProvider } from "./utils/AuthContext";
@@ -20,7 +20,7 @@ export default function App() {
             <Route path="/jobs" element={<Jobs />} />
             <Route path="/search" element={<Search />} />
             <Route path="/profile" element={<Profile />} />
-            <Route path="/menu" element={<Menu />} />
+            <Route path="/bookmarks" element={<Bookmarks />} />
           </Route>
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />

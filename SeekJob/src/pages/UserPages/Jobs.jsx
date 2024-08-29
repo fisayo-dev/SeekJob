@@ -35,7 +35,7 @@ const Jobs = () => {
     try {
       const response = await fetch(url, options);
       const result = await response.json();
-      setJobList(result);
+      setJobList((prev) => prev.push(result));
       console.log(result);
     } catch (error) {
       console.error(error);
@@ -126,9 +126,9 @@ const Jobs = () => {
         </div>
         <div className="grid">
           <div className="grid gap-5 grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
-            {/* {jobsList.map((jobItem) => {
+            {jobsList.map((jobItem) => {
               <JobCard key={jobItem.id} job={jobItem} />;
-            })} */}
+            })}
 
               Applet
 

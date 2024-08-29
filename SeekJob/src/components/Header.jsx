@@ -42,7 +42,7 @@ const Header = ({ responsive }) => {
         </NavLink>
       </div>
       <div className="flex justify-center cursor-pointer gap-5 items-center">
-        <NavLink to="/menu">
+        <NavLink to="/bookmarks" className="app-page-tabs">
           <Bookmark className={`${responsive ? "hidden" : "flex"} `} />
         </NavLink>
         <div onClick={logoutUser}>

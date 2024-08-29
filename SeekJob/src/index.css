@@ -127,6 +127,22 @@ p {
   box-shadow: 3px 3px 8px -1px #ebebeb;
 }
 
+.profile-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid #ccc;
+  border-radius: 0.9rem;
+  width: 25rem;
+  @apply  px-[5vh] py-[3vh] place-items-start gap-5 text-sm ;
+}
+
+
+
+.profile-card .detail h2 {
+
+}
+
 .job-card:hover {
   border: 1px solid #b1aeae;
   cursor: pointer;
