@@ -1,51 +1,65 @@
+import React from "react";
 import { useEffect, useState } from "react";
 import UserPage from "./UserPage";
 import { FaArrowDown, FaLocationDot } from "react-icons/fa6";
-import JobCard  from "../../components/User/JobCard";
+import JobCard from "../../components/User/JobCard";
 
 const Jobs = () => {
-  const [currentTab, setCurrentTab] = useState("tech");
-  const [location, setLocation] = useState("");
+  const [currentTab, setCurrentTab] = useState("education");
+  const [countryName,setCountryName] = useState('')
+  const [location, setLocation] = useState("at");
   const [jobsList, setJobList] = useState([]);
+  const app_id = import.meta.env.VITE_ADUNZA_API_ID;
+  const app_key = import.meta.env.VITE_ADUNZA_API_KEY;
+ 
+  const countryCodes = {
+    AT: 'Austria',
+    AU: 'Australia',
+    BE: 'Belgium',
+    BR: 'Brazil',
+    CA: 'Canada',
+    CH: 'Switzerland',
+    DE: 'Germany',
+    ES: 'Spain',
+    FR: 'France',
+    GB: 'United Kingdom',
+    IN: 'India',
+    IT: 'Italy',
+    MX: 'Mexico',
+    NL: 'Netherlands',
+    NZ: 'New Zealand',
+    PL: 'Poland',
+    SG: 'Singapore',
+    US: 'United States',
+    ZA: 'South Africa'
+  };
+  
+  function getCountryName(code) {
+     setCountryName(countryCodes[code.toUpperCase()] || 'Unknown Country Code');
+  }
 
-  // Get current location
   useEffect(() => {
-    fetch("https://ipinfo.io?token=e4a8397c5566b0")
-      .then((response) => response.json())
-      .then((data) => {
-        const region = data.region;
-        setLocation(`${region}`);
-      })
-      .catch((error) => {
-        console.error("Error fetching the IP information:", error);
-      });
-  },[]);
-
-  const fetchJobsFromIndeed = async (query, location) => {
-    const url = `https://indeed-jobs-api.p.rapidapi.com/indeed-us/?offset=0&keyword=${query}&location=${location}`;
-    const options = {
-      method: "GET",
-      headers: {
-        "x-rapidapi-key": "4617d18d24msh1d390f6ec109602p1d5274jsn4bbe1157f187",
-        "x-rapidapi-host": "indeed-jobs-api.p.rapidapi.com",
-      },
-    };
+    getCountryName(location)
+  })
+  const fetchJobs = async () => {
+    const url = `https://api.adzuna.com/v1/api/jobs/${location}/search/1?app_id=${app_id}&app_key=${app_key}&results_per_page=20&what=${currentTab}`;
 
     try {
-      const response = await fetch(url, options);
-      const result = await response.json();
-      setJobList((prev) => prev.push(result));
-      console.log(result);
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      const data = await response.json();
+      setJobList(data.results);
+      console.log(data.results);
     } catch (error) {
-      console.error(error);
+      console.error(error.message);
     }
   };
 
   useEffect(() => {
-    if (location) {
-      fetchJobsFromIndeed("web developer", location);
-    }
-  }, [location]);
+    fetchJobs();  
+  },[currentTab,location]);
 
   return (
     <UserPage>
@@ -53,13 +67,13 @@ const Jobs = () => {
         <div className=" justify-start catgeories-tabs md:justify-center w-full overflow-scroll gap-6 flex items-center">
           <p
             className={`${
-              currentTab == "tech"
+              currentTab == "it"
                 ? "font-bold border-b-2 border-black"
                 : "hover:border-gray-300 hover:border-b-2"
             } cursor-pointer `}
-            onClick={() => setCurrentTab("tech")}
+            onClick={() => setCurrentTab("it")}
           >
-            Tech
+            IT
           </p>
           <p
             className={`${
@@ -73,33 +87,33 @@ const Jobs = () => {
           </p>
           <p
             className={`${
-              currentTab == "leadership"
+              currentTab == "marketing"
                 ? "font-bold border-b-2 border-black"
                 : "hover:border-gray-300 hover:border-b-2"
             } cursor-pointer `}
-            onClick={() => setCurrentTab("leadership")}
+            onClick={() => setCurrentTab("marketing")}
           >
-            Leadership
+            Marketing
           </p>
           <p
             className={`${
-              currentTab == "internship"
+              currentTab == "finance"
                 ? "font-bold border-b-2 border-black"
                 : "hover:border-gray-300 hover:border-b-2"
             } cursor-pointer `}
-            onClick={() => setCurrentTab("internship")}
+            onClick={() => setCurrentTab("finance")}
           >
-            Internship
+            Finance
           </p>
           <p
             className={`${
-              currentTab == "art"
+              currentTab == "human resource"
                 ? "font-bold border-b-2 border-black"
                 : "hover:border-gray-300 hover:border-b-2"
             } cursor-pointer `}
-            onClick={() => setCurrentTab("art")}
+            onClick={() => setCurrentTab("human resource")}
           >
-            Art
+            Human Resource
           </p>
           <p
             className={`${
@@ -114,23 +128,42 @@ const Jobs = () => {
         </div>
         <div className="border-1 text-slate-500 rounded-lg px-4 app-gray gap-2 flex items-center h-12 w-full lg:w-2/4 md:w-3/4">
           <FaLocationDot />
-          <input
+          <p type="text" className="w-full">{countryName}</p>
+          <select
             type="text"
             placeholder="Type your location"
-            className="w-full"
+            className="capitalize bg-transparent outline-0 "
             value={location}
-          />
+            onChange={(e) => setLocation(e.target.value)}
+          >
+            <option>at</option>
+            <option>gb</option>
+            <option>us</option>
+            <option>es</option>
+            <option>au</option>
+            <option>be</option>
+            <option>br</option>
+            <option>ca</option>
+            <option>ch</option>
+            <option>de</option>
+            <option>fr</option>
+            <option>in</option>
+            <option>it</option>
+            <option>mx</option>
+            <option>nl</option>
+            <option>nz</option>
+            <option>pl</option>
+            <option>sg</option>
+            <option>za</option>
+          </select>
 
-          <FaArrowDown />
         </div>
         <div className="grid">
           <div className="grid gap-5 grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
-            {jobsList.length != 0 && jobsList.map((jobItem) => {
-              <JobCard key={jobItem.id} job={jobItem} />;
-            })}
-
-              Applet
-
+            {jobsList.length !== 0 &&
+              jobsList.map((jobItem) => (
+                <JobCard key={jobItem.id} job={jobItem} />
+              ))}
           </div>
         </div>
       </div>
