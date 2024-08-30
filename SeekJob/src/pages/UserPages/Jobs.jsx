@@ -11,6 +11,7 @@ const Jobs = () => {
   const [jobsList, setJobList] = useState([]);
   const app_id = import.meta.env.VITE_ADUNZA_API_ID;
   const app_key = import.meta.env.VITE_ADUNZA_API_KEY;
+  const results_per_page = import.meta.env.VITE_JOB_FETCH_RESULTS_PER_PAGE
  
   const countryCodes = {
     AT: 'Austria',
@@ -42,7 +43,7 @@ const Jobs = () => {
     getCountryName(location)
   })
   const fetchJobs = async () => {
-    const url = `https://api.adzuna.com/v1/api/jobs/${location}/search/1?app_id=${app_id}&app_key=${app_key}&results_per_page=20&what=${currentTab}`;
+    const url = `https://api.adzuna.com/v1/api/jobs/${location}/search/1?app_id=${app_id}&app_key=${app_key}&results_per_page=${results_per_page}&what=${currentTab}`;
 
     try {
       const response = await fetch(url);
