@@ -1,7 +1,5 @@
 import {
-  FaGoogle,
   FaMagnifyingGlass,
-  FaRegCopyright,
   FaEnvelope,
   FaKey,
   FaEyeSlash,
