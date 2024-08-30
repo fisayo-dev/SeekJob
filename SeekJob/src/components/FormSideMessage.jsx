@@ -3,14 +3,12 @@ import { NavLink } from 'react-router-dom'
 import Button from './Button'
 import Logo from './Logo'
 
-const FormSideMessage = ({responsive,title,subtitle,btnText, to,border}) => {
+const FormSideMessage = ({title,subtitle,btnText, to,border}) => {
   return (
     <div
-        className={`${border} w-full h-[100vh] ${
-          responsive ? "hidden" : "grid"
-        } place-items-center`}
+        className={`${border} w-full h-[100vh] grid place-items-center form-side-msg justify-items-center`}
       >
-        <div className="w-full grid py-3 px-[8vw] gap-5 justify-items-">
+        <div className="form-side-msg-content grid py-3 gap-5 justify-items-">
           <NavLink to="/" className="flex items-center app-text-color gap-2">
             <Logo/>
           </NavLink>

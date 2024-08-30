@@ -133,15 +133,10 @@ p {
   overflow: hidden;
   border: 1px solid #ccc;
   border-radius: 0.9rem;
-  width: 25rem;
-  @apply  px-[5vh] py-[3vh] place-items-start gap-5 text-sm ;
+  @apply  px-[5vh] py-[3vh] place-items-start gap-5 text-sm m-auto;
+  box-shadow: 3px 3px 8px -1px #ebebeb;
 }
 
-
-
-.profile-card .detail h2 {
-
-}
 
 .job-card:hover {
   border: 1px solid #b1aeae;
@@ -155,6 +150,11 @@ p {
 .job-card:hover div h2 {
   text-decoration: underline;
 }
+
+.form-side-msg-content {
+  @apply w-3/4
+}
+
 
 .app-gray {
   @apply bg-gray-100;
@@ -183,6 +183,20 @@ p {
 
   .job-card-img {
     width: 40px;
-  height: 40px;
+    height: 40px;
+  }
+
+  
+}
+
+@media screen and (max-width: 1000px) {
+  .form-side-msg {
+    @apply hidden ;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .form-side-msg-content {
+    @apply w-3/5
   }
 }

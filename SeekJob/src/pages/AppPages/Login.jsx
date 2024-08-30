@@ -12,6 +12,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import FormSideMessage from "../../components/FormSideMessage";
 import { useAuth } from "../../utils/AuthContext";
+import Google from "../../components/Google";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -108,10 +109,7 @@ const Login = () => {
           </form>
           <div className="grid gap-1">
             <p className="text-center">-- OR --</p>
-            <div className="px-4 py-2 border-2 border-gray-600 hover:bg-gray-600 hover:text-white cursor-pointer rounded-md flex items-center justify-center gap-2">
-              <FaGoogle />
-              <p>Continue with Google</p>
-            </div>
+            <Google />
           </div>
         </div>
       </div>

@@ -26,7 +26,7 @@ const AppFooter = ({ responsive }) => {
           <FaUser className="m-auto" />
         </NavLink>
         <NavLink to="/bookmarks" className={`app-page-tabs `}>
-          <Bookmark className={`${active}m-auto`} />
+          <Bookmark className={`${active} m-auto`} />
         </NavLink>
       </div>
     </div>

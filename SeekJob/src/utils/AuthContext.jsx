@@ -1,6 +1,6 @@
 import { useContext, useState, createContext, useEffect } from "react";
 import { account } from "../appwrite/config";
-import { ID, Query } from "appwrite";
+import { ID } from "appwrite";
 import Swal from "sweetalert2";
 
 const AuthContext = createContext();
@@ -32,7 +32,7 @@ export const AuthProvider = ({ children }) => {
           icon: "error",
           text: "Invlaid username or Email",
           timer: 4000,
-          position: "center-start",
+          position: "top",
           showConfirmButton: false,
         });
       } else {
@@ -41,7 +41,7 @@ export const AuthProvider = ({ children }) => {
           icon: "error",
           text: "Unable to Access Server",
           timer: 4000,
-          position: "center-start",
+          position: "top",
           showConfirmButton: false,
         });
       }
@@ -51,21 +51,6 @@ export const AuthProvider = ({ children }) => {
 
   const registerUser = async (userInfo) => {
     setLoading(true);
-
-    // //  Check if username is the same.
-    // const users = await account.list([
-    //   Query.equal("username", userInfo.username),
-    // ]);
-
-    // if (users.total > 0) {
-    //   setLoading(false);
-    //   Swal.fire({
-    //     toast: true,
-    //     text: "Username already exists. Please choose a different username",
-    //     timer: 2000,
-    //   });
-    //   return;
-    // }
 
     try {
       await account.create(
@@ -99,11 +84,44 @@ export const AuthProvider = ({ children }) => {
           text: "Unable to reach server. Try again",
           icon: "error",
           position: "top-end",
+          showConfirmButton: false,
           timer: 2000,
         });
       }
     }
     setLoading(false);
+  };
+
+  const deleteUser = async (userId) => {
+    try {
+      await users.deleteUser(userId);
+      Swal.fire({
+        toast: true,
+        icon: "success",
+        text: "User has been succesfully deleted",
+        timer: 3000,
+        position: "top",
+        showConfirmButton: false,
+      });
+    } catch (error) {
+      console.error("Failed to delete user:", error);
+    }
+    // try {
+    //   const response = await axios.delete(`https://${import.meta.env.VITE_ENDPOINT}/v1/users/${userId}`, {
+    //       headers: {
+    //           'X-Appwrite-Project': import.meta.env.VITE_PROJECT_ID,
+    //           'X-Appwrite-Key': import.meta.env.VITE_API_KEY,
+    //       },
+    //   });
+
+    //   if (response.status === 204) { // No content status code
+    //       console.log('User deleted successfully');
+    //   } else {
+    //       console.error('Failed to delete user:', response.statusText);
+    //   }
+  // } catch (error) {
+  //     console.error('Error:', error);
+  // }
   };
 
   const logoutUser = () => {
@@ -116,7 +134,7 @@ export const AuthProvider = ({ children }) => {
       let accountDetail = await account.get();
       setUser(accountDetail);
     } catch (err) {
-    //   console.log(err)
+      //   console.log(err)
     }
     setLoading(false);
   };
@@ -126,6 +144,7 @@ export const AuthProvider = ({ children }) => {
     loginUser,
     registerUser,
     logoutUser,
+    deleteUser
   };
 
   return (

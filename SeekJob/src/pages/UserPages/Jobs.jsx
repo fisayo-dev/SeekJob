@@ -13,14 +13,13 @@ const Jobs = () => {
     fetch("https://ipinfo.io?token=e4a8397c5566b0")
       .then((response) => response.json())
       .then((data) => {
-        const country = data.country;
         const region = data.region;
         setLocation(`${region}`);
       })
       .catch((error) => {
         console.error("Error fetching the IP information:", error);
       });
-  });
+  },[]);
 
   const fetchJobsFromIndeed = async (query, location) => {
     const url = `https://indeed-jobs-api.p.rapidapi.com/indeed-us/?offset=0&keyword=${query}&location=${location}`;
@@ -126,7 +125,7 @@ const Jobs = () => {
         </div>
         <div className="grid">
           <div className="grid gap-5 grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
-            {jobsList.map((jobItem) => {
+            {jobsList.length != 0 && jobsList.map((jobItem) => {
               <JobCard key={jobItem.id} job={jobItem} />;
             })}
 

@@ -12,9 +12,10 @@ import { useEffect, useState } from "react";
 import { useNavigate, NavLink } from "react-router-dom";
 import FormSideMessage from "../../components/FormSideMessage";
 import { useAuth } from "../../utils/AuthContext";
+import Google from "../../components/Google";
 
 const SignUp = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   // Input States
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -25,23 +26,22 @@ const SignUp = () => {
   const [symblValid, setSymblValid] = useState(false);
   const [openPassword, setOpenPassword] = useState(false);
 
-  const { registerUser,user } = useAuth();
+  const { registerUser, user } = useAuth();
 
   // Responsive states
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [responsive, setResponsive] = useState(false);
 
   useEffect(() => {
-    windowWidth < 1001 ? setResponsive(true) : setResponsive(false);
-  }, [windowWidth]);
-
-  useEffect(() => {
     if (user) {
-      navigate('/jobs')
+      navigate("/jobs");
     }
-    window.addEventListener("resize", () => setWindowWidth(window.innerWidth))
+    window.addEventListener("resize", () => setWindowWidth(window.innerWidth));
     windowWidth < 1001 ? setResponsive(true) : setResponsive(false);
   }, []);
+  useEffect(() => {
+    windowWidth < 1001 ? setResponsive(true) : setResponsive(false);
+  }, [windowWidth]);
 
   // Client - Side Validation
   function checkPwdNum() {
@@ -115,14 +115,13 @@ const SignUp = () => {
     const userInfo = {
       username: username,
       password: password,
-      email: email
+      email: email,
     };
-    registerUser(userInfo)
+    registerUser(userInfo);
   };
   return (
     <div className="graph-bg grid grid-cols-2 w-[100vw] overflow-hidden">
       <FormSideMessage
-        responsive={responsive}
         title="Start your journey of Job Seeking Now."
         subtitle="Already have an account, then login and continue your job seeking process."
         btnText="Login to account"
@@ -207,10 +206,7 @@ const SignUp = () => {
           </form>
           <div className="grid gap-1">
             <p className="text-center">-- OR --</p>
-            <div className="px-4 py-2 border-2 border-gray-600 hover:bg-gray-600 hover:text-white cursor-pointer  rounded-lg flex items-center justify-center gap-2">
-              <FaGoogle />
-              <p>Continue with Google</p>
-            </div>
+            <Google />
           </div>
         </div>
       </div>
