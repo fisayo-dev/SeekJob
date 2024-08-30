@@ -73,7 +73,7 @@ export const AuthProvider = ({ children }) => {
         Swal.fire({
           toast: true,
           text: "Email Address has already been taken",
-          position: "top-end",
+          position: "top",
           icon: "error",
           showConfirmButton: false,
           timer: 4000,
@@ -83,7 +83,7 @@ export const AuthProvider = ({ children }) => {
           toast: true,
           text: "Unable to reach server. Try again",
           icon: "error",
-          position: "top-end",
+          position: "top",
           showConfirmButton: false,
           timer: 2000,
         });
