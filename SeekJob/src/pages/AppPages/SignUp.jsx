@@ -189,7 +189,7 @@ const SignUp = () => {
                 {openPassword ? <FaEyeSlash /> : <FaEye />}
               </div>
             </div>
-            <div className="grid gao-1 text-[0.7rem] md:text-[0.89rem] font-bold">
+            <div className="grid pwd-err-msg  md:text-[0.89rem] font-bold">
               <pre
                 className={`${symblValid ? "app-success" : "app-text-color"}`}
               >

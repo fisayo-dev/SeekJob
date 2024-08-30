@@ -176,6 +176,11 @@ p {
   /* background-color: ; */
 }
 
+.pwd-err-msg pre{
+  font-family: 'Montserrat';
+  @apply text-xs
+}
+
 @media screen and (max-width: 899px) {
   .app-grid {
     grid-template-rows: 10% 80% 10%;
