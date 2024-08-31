@@ -5,9 +5,9 @@ import { FaArrowDown, FaLocationDot } from "react-icons/fa6";
 import JobCard from "../../components/User/JobCard";
 
 const Jobs = () => {
-  const [currentTab, setCurrentTab] = useState("education");
+  const [currentTab, setCurrentTab] = useState("it");
   const [countryName,setCountryName] = useState('')
-  const [location, setLocation] = useState("at");
+  const [location, setLocation] = useState("us");
   const [jobsList, setJobList] = useState([]);
   const app_id = import.meta.env.VITE_ADUNZA_API_ID;
   const app_key = import.meta.env.VITE_ADUNZA_API_KEY;
