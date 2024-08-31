@@ -44,7 +44,7 @@ const Jobs = () => {
     getCountryName(location)
   })
   const fetchJobs = async () => {
-    const url = `https://api.adzuna.com/v1/api/jobs/${location}/search/1?app_id=${app_id}&app_key=${app_key}&results_per_page=${results_per_page}&what=${currentTab}`;
+    const url = `https://api.adzuna.com/v1/api/jobs/${location}/search/?app_id=${app_id}&app_key=${app_key}&results_per_page=${results_per_page}&what=${currentTab}`;
 
     try {
       const response = await fetch(url);
