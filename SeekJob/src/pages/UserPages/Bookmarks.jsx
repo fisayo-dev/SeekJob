@@ -6,13 +6,39 @@ import { NavLink } from "react-router-dom";
 import Button from "../../components/Button";
 import OpenLinkTab from "../../icons/OpenLinkTab";
 import { useAuth } from "../../utils/AuthContext";
-import Bookmark from "../../icons/Bookmark";
 import { FaTrash } from "react-icons/fa";
+import Swal from 'sweetalert2'
 
 const Bookmarks = () => {
   const { user } = useAuth();
   console.log(user);
   const [bookmark, setBookmark] = useState([]);
+
+  const deleteBookmark = async (currentBookmark) => {
+    await Swal.fire({
+      icon: "warning",
+      title: "Delete file ?",
+      text: "Are you sure you want to delete the file",
+      confirmButtonText: "Yes, delete it",
+      confirmButtonColor: "#2563eb",
+      cancelButtonText: "No",
+      cancelButtonColor: "#d33",
+      showCancelButton: true,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        db.bookmarks.delete(currentBookmark.$id);
+        setBookmark((prevBookmark) =>
+          prevBookmark.filter((i) => i.$id !== currentBookmark.$id)
+        );
+        Swal.fire({
+          title: "Deleted!",
+          text: "Your file has been deleted.",
+          icon: "success",
+          confirmButtonColor: "#2563eb",
+        });
+      }
+    });
+  };
 
   const fetchBookMarks = async () => {
     const results = await db.bookmarks.list([Query.orderDesc("$createdAt")]);
@@ -71,10 +97,14 @@ const Bookmarks = () => {
                   </div>
                 </div>
                 <div className="flex w-full justify-between items-center ">
-                  <p>{`${new Date(item.$createdAt).getDay()} / ${
-                    new Date(item.$createdAt).getMonth() + 1
-                  } /${new Date(item.$createdAt).getFullYear()}`}</p>
-                  <FaTrash className="hover-app-text-color text-[1.7rem]" />
+                  <p>
+                    {`${new Date(item.$createdAt).getDay()} / ${
+                      new Date(item.$createdAt).getMonth() + 1
+                    } /${new Date(item.$createdAt).getFullYear()}`}
+                  </p>
+                  <div onClick={() => deleteBookmark(item)}>
+                    <FaTrash className="hover-app-text-color text-[1.7rem]" />
+                  </div>
                 </div>
               </div>
             ))}
