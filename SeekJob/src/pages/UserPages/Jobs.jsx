@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import UserPage from "./UserPage";
-import { FaArrowDown, FaLocationDot } from "react-icons/fa6";
+import { FaLocationDot } from "react-icons/fa6";
 import JobCard from "../../components/User/JobCard";
 
 const Jobs = () => {
@@ -34,6 +34,7 @@ const Jobs = () => {
     US: 'United States',
     ZA: 'South Africa'
   };
+  
   
   function getCountryName(code) {
      setCountryName(countryCodes[code.toUpperCase()] || 'Unknown Country Code');

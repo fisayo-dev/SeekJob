@@ -1,7 +1,10 @@
 import JobCard from "../../components/User/JobCard";
 import UserPage from "./UserPage";
+import db from "../../appwrite/databases";
+import { useState } from "react";
 
 const Bookmarks = () => {
+  const [bookmarks, setBookmark] = useState([]) 
   return (
     <UserPage>
       <div className="grid justify-items-center">
