@@ -2,16 +2,18 @@ import UserPage from "./UserPage";
 import { useState, useEffect } from "react";
 import SearchIcon from "../../icons/SearchIcon";
 import JobCard from "../../components/User/JobCard";
+import Spinner from "../../components/Spinner";
 
 const Search = () => {
   const [countryName, setCountryName] = useState("");
   const [location, setLocation] = useState("us");
   const [searchTerm, setSearchTerm] = useState("");
   const [jobsList, setJobList] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const app_id = import.meta.env.VITE_ADUNZA_API_ID;
   const app_key = import.meta.env.VITE_ADUNZA_API_KEY;
-  const results_per_page = import.meta.env.VITE_JOB_FETCH_RESULTS_PER_PAGE
+  const results_per_page = import.meta.env.VITE_JOB_FETCH_RESULTS_PER_PAGE;
 
   const countryCodes = {
     AT: "Austria",
@@ -46,6 +48,7 @@ const Search = () => {
   const fetchJobs = async () => {
     const url = `https://api.adzuna.com/v1/api/jobs/${location}/search/1?app_id=${app_id}&app_key=${app_key}&results_per_page=${results_per_page}&what=${searchTerm}`;
 
+    setLoading(true);
     try {
       const response = await fetch(url);
       if (!response.ok) {
@@ -57,11 +60,12 @@ const Search = () => {
     } catch (error) {
       console.error(error.message);
     }
+    setLoading(false);
   };
 
   useEffect(() => {
-    fetchJobs()
-  },[searchTerm,location])
+    fetchJobs();
+  }, [searchTerm, location]);
   return (
     <UserPage>
       <div className="grid gap-5 justify-items-center">
@@ -104,12 +108,22 @@ const Search = () => {
           </select>
         </div>
         <div className="grid">
-          <div className="grid gap-5 grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
-            {jobsList.length !== 0 &&
-              jobsList.map((jobItem) => (
-                <JobCard key={jobItem.id} job={jobItem} />
-              ))}
-          </div>
+          {loading ? (
+            <div className="py-5 grid text-center items-center app-text-color gap-2">
+              <Spinner />
+              Fetching jobs...
+            </div>
+          ) : (
+            <>
+              <h2 className="text-center text-3xl ">{`Search result for ${searchTerm}`}</h2>
+              <div className="grid gap-5 grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
+                {jobsList.length !== 0 &&
+                  jobsList.map((jobItem) => (
+                    <JobCard key={jobItem.id} job={jobItem} />
+                  ))}
+              </div>
+            </>
+          )}
         </div>
       </div>
     </UserPage>
