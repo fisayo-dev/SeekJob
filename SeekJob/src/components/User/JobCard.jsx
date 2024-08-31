@@ -19,6 +19,7 @@ const JobCard = ({ job }) => {
         location_name: job.location.display_name,
         userId: user.$id,
         description: job.description,
+        redirect_url: job.redirect_url,
       });
       console.log("Success");
       Swal.fire({
