@@ -136,13 +136,13 @@ p {
   @apply  px-[5vh] py-[3vh] place-items-start gap-5 text-sm m-auto;
   box-shadow: 3px 3px 8px -1px #ebebeb;
 }
-.hidden-btn {
-  display: none;;
-}
 
 
 .job-card:hover .hidden-btn{
-  display: block !important;
+  display: flex !important;
+}
+.job-card:hover .hidden-btn:hover {
+  box-shadow: 3px 3px 8px -1px #e4e4e4;
 }
 
 .job-card:hover {

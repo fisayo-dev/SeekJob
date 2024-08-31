@@ -5,7 +5,7 @@ import JobCard from "../../components/User/JobCard";
 
 const Search = () => {
   const [countryName, setCountryName] = useState("");
-  const [location, setLocation] = useState("at");
+  const [location, setLocation] = useState("us");
   const [searchTerm, setSearchTerm] = useState("");
   const [jobsList, setJobList] = useState([]);
 

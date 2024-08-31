@@ -1,18 +1,22 @@
 import { NavLink } from "react-router-dom";
 import Bookmark from "../../icons/Bookmark";
 import Button from "../Button";
+import OpenLinkTab from '../../icons/OpenLinkTab'
 
 const JobCard = ({ job }) => {
   return (
     <div className="job-card">
       <div className="grid gap-1 w-full">
-        <div className="flex justify-between">
+        <div className="grid py-1 grid-cols-2 justify-between">
           <img src={job.company_logo_url} alt="" className="job-card-img" />
-          <NavLink to={`${job.redirect_url}`} className="hidden-btn">
-            <Button customStyles="hidden-btn">Visit Site</Button>
+          <NavLink to={`${job.redirect_url}`} >
+            <Button customStyles="hidden-btn hidden items-center gap-1">
+              <p>Visit Site</p>
+              <OpenLinkTab />
+            </Button>
           </NavLink>
         </div>
-        <h2 className="text-[1.5rem] font-bold line-height-ok capitalize">
+        <h2 className="text-[1.5rem] font-bold line-height-ok text-wrap capitalize">
           {job.title.substring(0, 25)}...
         </h2>
       </div>
