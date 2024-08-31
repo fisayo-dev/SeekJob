@@ -9,7 +9,7 @@ const JobCard = ({ job }) => {
       <div className="grid gap-1 w-full">
         <div className="grid py-1 grid-cols-2 justify-between">
           <img src={job.company_logo_url} alt="" className="job-card-img" />
-          <NavLink to={`${job.redirect_url}`} >
+          <NavLink to={`${job.redirect_url}`} target="_blank" rel="noopener noreferrer">
             <Button customStyles="hidden-btn hidden items-center gap-1">
               <p>Visit Site</p>
               <OpenLinkTab />
