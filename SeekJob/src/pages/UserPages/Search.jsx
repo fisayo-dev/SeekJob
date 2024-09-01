@@ -45,7 +45,7 @@ const Search = () => {
     getCountryName(location);
   });
 
-  const fetchJobs = async () => {
+  const fetchJobs = async (e) => {
     setLoading(true);
     const url = `https://api.adzuna.com/v1/api/jobs/${location}/search/1?app_id=${app_id}&app_key=${app_key}&results_per_page=${results_per_page}&what=${searchTerm}`;
 
@@ -65,20 +65,28 @@ const Search = () => {
 
   useEffect(() => {
     fetchJobs();
-  }, [searchTerm, location]);
+  }, [location]);
   return (
     <UserPage>
       <div className="grid gap-5 justify-items-center">
         <div className="border-1 text-slate-500 rounded-lg px-4 app-gray gap-2 flex items-center h-12 w-full lg:w-2/4 md:w-3/4">
-          <SearchIcon />
-          <input
-            type="text"
-            className="bg-transparent w-full"
-            placeholder="Search for any job"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
-          <p type="text">{countryName}</p>
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              fetchJobs();
+            }}
+            className="flex items-center w-full"
+          >
+            <SearchIcon />
+            <input
+              type="text"
+              className="bg-transparent w-full"
+              placeholder="Search for any job"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+            <p type="text">{countryName}</p>
+          </form>
           <select
             type="text"
             placeholder="Type your location"
@@ -107,6 +115,7 @@ const Search = () => {
             <option>za</option>
           </select>
         </div>
+
         <div className="grid">
           {loading ? (
             <div className="py-5 grid text-center items-center app-text-color gap-2">
