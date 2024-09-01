@@ -58,7 +58,7 @@ const Bookmarks = () => {
         <h2 className="text-center text-3xl font-bold">Bookmarks</h2>
         {bookmark.length == 0 ? (
           <div className="grid justify-items-center py-5 text-center">
-            <div className="w-2/4 lg:w-3/5"> 
+            <div className="w-2/4 lg:w-3/5">
               <img src={EmptyBoomarks} alt="" />
             </div>
             <h2>Your Bookmark List is Empty</h2>
@@ -107,7 +107,7 @@ const Bookmarks = () => {
                   </div>
                   <div className="flex w-full justify-between items-center ">
                     <p>
-                      {`${new Date(item.$createdAt).getDay()} / ${
+                      {`${new Date(item.$createdAt).getDay() +1} / ${
                         new Date(item.$createdAt).getMonth() + 1
                       } /${new Date(item.$createdAt).getFullYear()}`}
                     </p>

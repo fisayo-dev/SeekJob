@@ -95,34 +95,24 @@ export const AuthProvider = ({ children }) => {
 
   const deleteUser = async (userId) => {
     try {
-      await users.deleteUser(userId);
-      Swal.fire({
-        toast: true,
-        icon: "success",
-        text: "User has been succesfully deleted",
-        timer: 3000,
-        position: "top",
-        showConfirmButton: false,
+      await Swal.fire({
+        icon: "warning",
+        title: "Delete Account ?",
+        text: "Are you sure you want to delete your account.",
+        confirmButtonText: "Yes, delete it",
+        confirmButtonColor: "#2563eb",
+        cancelButtonText: "No",
+        cancelButtonColor: "#d33",
+        showCancelButton: true,
+      }).then((result) => {
+        if (result.isConfirmed) {
+          account.deleteIdentity(userId);
+          logoutUser();
+        }
       });
     } catch (error) {
       console.error("Failed to delete user:", error);
     }
-    // try {
-    //   const response = await axios.delete(`https://${import.meta.env.VITE_ENDPOINT}/v1/users/${userId}`, {
-    //       headers: {
-    //           'X-Appwrite-Project': import.meta.env.VITE_PROJECT_ID,
-    //           'X-Appwrite-Key': import.meta.env.VITE_API_KEY,
-    //       },
-    //   });
-
-    //   if (response.status === 204) { // No content status code
-    //       console.log('User deleted successfully');
-    //   } else {
-    //       console.error('Failed to delete user:', response.statusText);
-    //   }
-  // } catch (error) {
-  //     console.error('Error:', error);
-  // }
   };
 
   const logoutUser = () => {
@@ -145,7 +135,7 @@ export const AuthProvider = ({ children }) => {
     loginUser,
     registerUser,
     logoutUser,
-    deleteUser
+    deleteUser,
   };
 
   return (

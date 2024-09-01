@@ -46,9 +46,9 @@ const Search = () => {
   });
 
   const fetchJobs = async () => {
+    setLoading(true);
     const url = `https://api.adzuna.com/v1/api/jobs/${location}/search/1?app_id=${app_id}&app_key=${app_key}&results_per_page=${results_per_page}&what=${searchTerm}`;
 
-    setLoading(true);
     try {
       const response = await fetch(url);
       if (!response.ok) {
@@ -114,15 +114,17 @@ const Search = () => {
               Fetching jobs...
             </div>
           ) : (
-            <>
-              <h2 className="text-center text-3xl ">{`Search result for ${searchTerm}`}</h2>
+            <div className="grid gap-2">
+              {searchTerm.trim() !== "" && (
+                <h2 className="text-center font-bold text-3xl ">{`Search result for ${searchTerm}`}</h2>
+              )}
               <div className="grid gap-5 grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
                 {jobsList.length !== 0 &&
                   jobsList.map((jobItem) => (
                     <JobCard key={jobItem.id} job={jobItem} />
                   ))}
               </div>
-            </>
+            </div>
           )}
         </div>
       </div>

@@ -3,7 +3,7 @@ import { useAuth } from "../../utils/AuthContext";
 import { FaUser } from "react-icons/fa";
 
 const Profile = () => {
-  const { user} = useAuth();
+  const { user, deleteUser} = useAuth();
   // const user = useAuth();
   const userDate = `${new Date(user.registration).getDay()} / ${
     new Date(user.registration).getMonth() + 1
