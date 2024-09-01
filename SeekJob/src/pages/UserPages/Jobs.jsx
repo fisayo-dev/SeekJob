@@ -6,7 +6,7 @@ import JobCard from "../../components/User/JobCard";
 import Spinner from "../../components/Spinner";
 
 const Jobs = () => {
-  const [currentTab, setCurrentTab] = useState("it");
+  const [currentTab, setCurrentTab] = useState("tech");
   const [countryName, setCountryName] = useState("");
   const [location, setLocation] = useState("us");
   const [jobsList, setJobList] = useState([]);
@@ -73,13 +73,13 @@ const Jobs = () => {
         <div className=" justify-start catgeories-tabs md:justify-center w-full overflow-scroll gap-6 flex items-center">
           <p
             className={`${
-              currentTab == "it"
+              currentTab == "tech"
                 ? "font-bold border-b-2 border-black"
                 : "hover:border-gray-300 hover:border-b-2"
             } cursor-pointer `}
-            onClick={() => setCurrentTab("it")}
+            onClick={() => setCurrentTab("tech")}
           >
-            IT
+            Tech
           </p>
           <p
             className={`${
