@@ -106,7 +106,7 @@ export const AuthProvider = ({ children }) => {
         showCancelButton: true,
       }).then((result) => {
         if (result.isConfirmed) {
-          account.deleteIdentity(userId);
+          // users.delete(userId);
           logoutUser();
         }
       });
