@@ -93,6 +93,10 @@ export const AuthProvider = ({ children }) => {
     setLoading(false);
   };
 
+  const googleSignIn = async () => {
+    
+  }
+
   const deleteUser = async (userId) => {
     try {
       await Swal.fire({
