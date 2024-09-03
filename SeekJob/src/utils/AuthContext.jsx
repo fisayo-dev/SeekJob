@@ -155,7 +155,6 @@ export const AuthProvider = ({ children }) => {
         <div className="w-[100vw] h-[100vh] grid items-center justify-center bg-gray-50 overflow-hidden anmate-load">
           <div className="text-center app-text-color justify-items-center grid gap-4 mx-auto">
             <img src="./SeekJob (1).png" alt="" className="w-1/6" />
-            {/* <p className=" text-6xl font-bold">SeekJob</p> */}
             <BarLoader loading={loading} />
           </div>
         </div>
