@@ -8,8 +8,8 @@ import { FaGithub } from "react-icons/fa6";
 const LandingPage = () => {
   return (
     <div className="graph-bg grid gap-3">
-      <div className="grid py-4 justify-items-center">
-        <div className="w-5/6 lg:w-3/5 flex justify-between items-center">
+      <div className="grid py-4 w-full">
+        <div className="container px-[10vw] m-auto flex justify-between items-center">
           <NavLink to="/">
             <Logo />
           </NavLink>
@@ -18,9 +18,9 @@ const LandingPage = () => {
           </NavLink>
         </div>
       </div>
-      <div className="grid h-3/5 lg:h-5/6 justify-items-center items-center py-4">
-        <div className="w-5/6 lg:w-3/5 grid  items-center gap-10 justify-items-center text-center">
-          <div className="grid gap-4 w-5/6 lg:w-3/4">
+      <div className="grid justify-items-center items-center py-4">
+        <div className="w-5/6 lg:w-2/4 grid text-center justify-items-center items-center gap-10">
+          <div className="grid gap-4  ">
             <h2 className="text-6xl tracking-tight font-extrabold">
               Look for any job of your choice.
             </h2>
@@ -34,14 +34,13 @@ const LandingPage = () => {
           </div>
           <img
             src={SearchLanding}
-            width="inherit"
             alt="Search Landing image"
             draggable={false}
           />
         </div>
       </div>
       <div className="grid justify-items-center py-4">
-        <div className="flex w-5/6 lg:w-3/5 items-center justify-between">
+        <div className="container px-[10vw] m-auto flex justify-between items-center">
           <Footer />
           <NavLink className="text-[1.2rem]">
             <FaGithub />
