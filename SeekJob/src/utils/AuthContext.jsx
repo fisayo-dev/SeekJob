@@ -94,8 +94,14 @@ export const AuthProvider = ({ children }) => {
   };
 
   const googleSignIn = async () => {
-    
-  }
+    account.createOAuth2Session(
+      "google",
+      "http://seekjob.vercel.app/jobs",
+      "http://seekjob.vercel.app/login"
+    );
+    const userDetails = account.get()
+    setUser(userDetails);
+  };
 
   const deleteUser = async (userId) => {
     try {
@@ -140,6 +146,7 @@ export const AuthProvider = ({ children }) => {
     registerUser,
     logoutUser,
     deleteUser,
+    googleSignIn
   };
 
   return (
