@@ -71,7 +71,7 @@ const Bookmarks = () => {
                   <div className="grid gap-1 w-full">
                     <div className="grid py-1 grid-cols-2 justify-between">
                       <img
-                        src={item.company_logo_url}
+                        src="/SeekJob (1).png"
                         alt=""
                         className="job-card-img"
                       />
