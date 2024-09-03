@@ -40,10 +40,7 @@ const Jobs = () => {
   function getCountryName(code) {
     setCountryName(countryCodes[code.toUpperCase()] || "Unknown Country Code");
   }
-
-  useEffect(() => {
-    getCountryName(location);
-  });
+  
   const fetchJobs = async () => {
     setLoading(true);
     const url = `https://api.adzuna.com/v1/api/jobs/${location}/search/?app_id=${app_id}&app_key=${app_key}&results_per_page=${results_per_page}&what=${currentTab}`;
@@ -62,6 +59,10 @@ const Jobs = () => {
 
     setLoading(false);
   };
+  
+  useEffect(() => {
+    getCountryName(location);
+  });
 
   useEffect(() => {
     fetchJobs();
