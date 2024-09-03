@@ -99,7 +99,7 @@ export const AuthProvider = ({ children }) => {
       "http://seekjob.vercel.app/jobs",
       "http://seekjob.vercel.app/login"
     );
-    const userDetails = account.get()
+    const userDetails = account.get();
     setUser(userDetails);
   };
 
@@ -146,15 +146,16 @@ export const AuthProvider = ({ children }) => {
     registerUser,
     logoutUser,
     deleteUser,
-    googleSignIn
+    googleSignIn,
   };
 
   return (
     <AuthContext.Provider value={contextData}>
       {loading ? (
         <div className="w-[100vw] h-[100vh] grid items-center justify-center bg-gray-50 overflow-hidden anmate-load">
-          <div className="text-center app-text-color justify-items-center grid gap-4">
-            <p className=" text-6xl font-bold">SeekJob</p>
+          <div className="text-center app-text-color justify-items-center grid gap-4 mx-auto">
+            <img src="./SeekJob (1).png" alt="" className="w-1/6" />
+            {/* <p className=" text-6xl font-bold">SeekJob</p> */}
             <BarLoader loading={loading} />
           </div>
         </div>

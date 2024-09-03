@@ -39,7 +39,7 @@ const JobCard = ({ job }) => {
     <div className="job-card">
       <div className="grid gap-1 ">
         <div className="grid py-1 grid-cols-2 justify-between w-full">
-          <img src={job.company_logo_url} alt="" className="job-card-img" />
+          <img src='/SeekJob (1).png' alt="" className="job-card-img" />
           <NavLink
             to={`${job.redirect_url}`}
             target="_blank"
